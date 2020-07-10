@@ -205,6 +205,9 @@ lat_HYPa3 ~~ c(cb_CNDHYP3_dz,cb_CNDHYP3_mz)*lat_CNDb3 + c(cb_HYPHYP3_dz,cb_HYPHY
 lat_EMOa3 ~~ c(cb_CNDEMO3_dz,cb_CNDEMO3_mz)*lat_CNDb3 + c(cb_HYPEMO3_dz,cb_HYPEMO3_mz)*lat_HYPb3 + c(cb_EMOEMO3_dz,cb_EMOEMO3_mz)*lat_EMOb3 + c(cb_EMOPER3_dz,cb_EMOPER3_mz)*lat_PERb3
 lat_PERa3 ~~ c(cb_CNDPER3_dz,cb_CNDPER3_mz)*lat_CNDb3 + c(cb_HYPPER3_dz,cb_HYPPER3_mz)*lat_HYPb3 + c(cb_EMOPER3_dz,cb_EMOPER3_mz)*lat_EMOb3 + c(cb_PERPER3_dz,cb_PERPER3_mz)*lat_PERb3
 
+#estimate genetic/environmental components  
+#note an ADE or ACE model can be specified a priori upon inspection of the covariance structure for each trait
+
 #Random intercepts ADCE
 
 a2CND := 2*(bI_CNDCND_mz-bI_CNDCND_dz)
