@@ -1,5 +1,5 @@
 
-load("covobs_NTR.gitHub.RData")
+load("covobs_NTR.wf.RData")
 
 wf_clpm.cov <- covObs #variance covariance matrix 
 wf_clpm.n <- list(DZ=11072,MZ=6056) #TEDS sample size 

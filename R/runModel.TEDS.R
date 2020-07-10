@@ -1,6 +1,6 @@
 library(lavaan)
 
-load("covobs_TEDS.gitHub.RData")
+load("covobs_TEDS.wf.RData")
 
 wf_clpm.cov <- covObs #variance covariance matrix 
 wf_clpm.n <- list(DZ=5465,MZ=2979) #TEDS sample size 
