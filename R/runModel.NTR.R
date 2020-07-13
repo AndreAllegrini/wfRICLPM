@@ -1,5 +1,6 @@
 
-load("covobs_NTR.wf.RData")
+
+load(url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/matrices/covobs_NTR.wf.RData")) #load RData
 
 wf_clpm.cov <- covObs #variance covariance matrix 
 wf_clpm.n <- list(DZ=11072,MZ=6056) #NTR sample size 
