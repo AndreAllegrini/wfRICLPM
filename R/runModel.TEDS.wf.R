@@ -1,4 +1,7 @@
 library(lavaan)
+library(devtools)
+
+source_url("https://github.com/AndreAllegrini/wfRICLPM/blob/master/R/wf_RICLPM.R") #lavaan model
 
 load(url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/matrices/covobs_TEDS.wf.RData")) #load RData
 
