@@ -2,7 +2,7 @@
 load("covobs_NTR.wf.RData")
 
 wf_clpm.cov <- covObs #variance covariance matrix 
-wf_clpm.n <- list(DZ=11072,MZ=6056) #TEDS sample size 
+wf_clpm.n <- list(DZ=11072,MZ=6056) #NTR sample size 
 
 wf_RICLPM_git <- lavaan(wf_RICLPM, 
                sample.cov = wf_clpm.cov, 
