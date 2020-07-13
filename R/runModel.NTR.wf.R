@@ -1,4 +1,4 @@
-
+library(lavaan)
 
 load(url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/matrices/covobs_NTR.wf.RData")) #load RData
 
@@ -16,6 +16,5 @@ wf_RICLPM_git <- lavaan(wf_RICLPM,
                auto.cov.lv.x = F,
                auto.cov.y = F,
                auto.var = F)
-
 
 summary(wf_RICLPM_git, standardized = TRUE)
