@@ -73,7 +73,6 @@ wfRICLPM <- function(varNames = varNames, sibSub = sibSub, constrained = FALSE)
      RIcb_txt <- paste(unlist(c(upperT, lowerT)), collapse = "\n")
      
        # fixed intercepts
-       # double up label to make means equal across sygosity? 
      listFInt <- list() 
      
      for (i in sibSub){
@@ -201,8 +200,7 @@ wfRICLPM <- function(varNames = varNames, sibSub = sibSub, constrained = FALSE)
     df <- as.data.frame(latNames, stringsAsFactors = FALSE)
     nSets <- dim(df)[1]
     nTraits <- dim(df)[2]
-    for (S in sibSub)
-    {
+   
         for (i in 1:nSets)
         {
             set <- df[i, ]
@@ -214,7 +212,6 @@ wfRICLPM <- function(varNames = varNames, sibSub = sibSub, constrained = FALSE)
                   S), collapse = " + ")))
             }
         }
-    }
     
     ConCov_w_txt <- paste(ConCov, collapse = "\n")
     
