@@ -1,4 +1,4 @@
-wf_RICLPM <- '
+WF_RICLPM_1 <- '
 #random interecepts for sib 1
 
 ri_CNDa =~ 1*CON_t1a + 1*CON_t2a + 1*CON_t3a
@@ -205,9 +205,6 @@ lat_HYPa3 ~~ c(cb_CNDHYP3_dz,cb_CNDHYP3_mz)*lat_CNDb3 + c(cb_HYPHYP3_dz,cb_HYPHY
 lat_EMOa3 ~~ c(cb_CNDEMO3_dz,cb_CNDEMO3_mz)*lat_CNDb3 + c(cb_HYPEMO3_dz,cb_HYPEMO3_mz)*lat_HYPb3 + c(cb_EMOEMO3_dz,cb_EMOEMO3_mz)*lat_EMOb3 + c(cb_EMOPER3_dz,cb_EMOPER3_mz)*lat_PERb3
 lat_PERa3 ~~ c(cb_CNDPER3_dz,cb_CNDPER3_mz)*lat_CNDb3 + c(cb_HYPPER3_dz,cb_HYPPER3_mz)*lat_HYPb3 + c(cb_EMOPER3_dz,cb_EMOPER3_mz)*lat_EMOb3 + c(cb_PERPER3_dz,cb_PERPER3_mz)*lat_PERb3
 
-#estimate genetic/environmental components  
-#note an ADE or ACE model can be specified a priori upon inspection of the covariance structure for each trait
-
 #Random intercepts ADCE
 
 a2CND := 2*(bI_CNDCND_mz-bI_CNDCND_dz)
@@ -227,8 +224,6 @@ d2PER := (2*bI_PERPER_mz) - (4*bI_PERPER_dz)
 e2PER := 1-bI_PERPER_mz
 
 
-#age specific ADCE
-
 a1cnd := 2*(cb_CNDCND1_mz-cb_CNDCND1_dz) 
 c1cnd :=(2*cb_CNDCND1_dz)-cb_CNDCND1_mz
 e1cnd := 1-cb_CNDCND1_mz
@@ -241,17 +236,19 @@ a1emo := 2*(cb_EMOEMO1_mz-cb_EMOEMO1_dz)
 c1emo :=(2*cb_EMOEMO1_dz)-cb_EMOEMO1_mz
 e1emo := 1-cb_EMOEMO1_mz
 
-a1per := 2*(cb_PERPER1_mz-cb_PERPER1_dz)
-c1per :=(2*cb_PERPER1_dz)-cb_PERPER1_mz
+a1per := (4*cb_PERPER1_dz)-cb_PERPER1_mz
+d1per :=(2*cb_PERPER1_mz) - (4*cb_PERPER1_dz)
 e1per := 1-cb_PERPER1_mz
+
 
 a2cnd := 2*(cb_CNDCND2_mz-cb_CNDCND2_dz) 
 c2cnd :=(2*cb_CNDCND2_dz)-cb_CNDCND2_mz
 e2cnd := 1-cb_CNDCND2_mz
 
-a2hyp := (4*cb_HYPHYP2_dz)-cb_HYPHYP2_mz
-c2hyp :=(2*cb_HYPHYP2_dz)-cb_HYPHYP2_mz 
+a2hyp := 2*(cb_HYPHYP2_mz-cb_HYPHYP2_dz) 
+c2hyp := (2*cb_HYPHYP2_dz)-cb_HYPHYP2_mz
 e2hyp := 1-cb_HYPHYP2_mz
+
 
 a2emo := 2*(cb_EMOEMO2_mz-cb_EMOEMO2_dz)
 c2emo :=(2*cb_EMOEMO2_dz)-cb_EMOEMO2_mz
@@ -265,16 +262,15 @@ a3cnd := 2*(cb_CNDCND3_mz-cb_CNDCND3_dz)
 c3cnd :=(2*cb_CNDCND3_dz)-cb_CNDCND3_mz
 e3cnd := 1-cb_CNDCND3_mz
 
-a3hyp := (4*cb_HYPHYP3_dz)-cb_HYPHYP3_mz
-c3hyp :=(2*cb_HYPHYP3_dz)-cb_HYPHYP3_mz 
+a3hyp := 2*(cb_HYPHYP3_mz-cb_HYPHYP3_dz)
+c3hyp := (2*cb_HYPHYP3_dz)-cb_HYPHYP3_mz
 e3hyp := 1-cb_HYPHYP3_mz
 
 a3emo := 2*(cb_EMOEMO3_mz-cb_EMOEMO3_dz)
 c3emo :=(2*cb_EMOEMO3_dz)-cb_EMOEMO3_mz
 e3emo := 1-cb_EMOEMO3_mz
 
-a3per := 2*(cb_PERPER3_mz-cb_PERPER3_dz)
-c3per :=(2*cb_PERPER3_dz)-cb_PERPER3_mz
+a3per := (4*cb_PERPER3_dz)-cb_PERPER3_mz
+d3per :=(2*cb_PERPER3_mz) - (4*cb_PERPER3_dz)
 e3per := 1-cb_PERPER3_mz
 '
-
