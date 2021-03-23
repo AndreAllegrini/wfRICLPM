@@ -24,7 +24,7 @@ wfRICLPM <- function(varNames = varNames, sibSub = sibSub, constrained = FALSE)
             RIntVar[[paste0(j, i)]] <- paste0("ri_", j, i, " ~~ ", "c(v_ri_", j, ",v_ri_", j, ")*", 
                 "ri_", j, i)
         }
-    }
+    } 
     
     RIv_txt <- paste(unlist(RIntVar), collapse = "\n")
    
@@ -77,17 +77,8 @@ wfRICLPM <- function(varNames = varNames, sibSub = sibSub, constrained = FALSE)
      
      for (i in sibSub){
        for (j in paste0(unlist(varNames))){ 
-         listFInt[[paste0(j, i)]] <- paste0(j,i, ' ~ c(', j,'_mu,',j,'_mu)*1') } }
-    
-    # fixed intercepts
- #   listFInt <- list()
-  #  for (i in sibSub)
-   # {
-    #    for (j in paste0(unlist(varNames)))
-     #   {
-      #      listFInt[[paste0(j, i)]] <- paste0(j, i, " ~ ", j, "_mu*1")
-       # }
-    #}
+         listFInt[[paste0(j, i)]] <- paste0(j,i, ' ~ c(', j,'_mu,',j,'_mu)*1') } 
+       }
    
      FI_txt <- paste(unlist(listFInt), collapse = "\n")
     
