@@ -1,13 +1,3 @@
----
-title: "Untitled"
-author: "Andrea Allegrini"
-date: "27/03/2021"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
-```
 
 # wfRICLPM
 
