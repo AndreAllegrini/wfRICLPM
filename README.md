@@ -83,10 +83,10 @@ library(ggplot2)
 
 load('data/CovMat_TEDS.Rdata')
 
-png('plots/covMat_TEDS.png', res=350, height = 2000, width = 2000)
+png('plots/covMat_TEDS.png', res=350, height = 800, width = 800)
 
-corrplot(cov2cor(CorMatTEDS) ,method = "square", type = 'upper', diag = FALSE, 
-         addCoef.col = "black", number.cex = .7, 
+corrplot(cov2cor(CorMatTEDS) ,method = "square", type = 'upper', outline = "black", 
+         diag = FALSE, addCoef.col = "black", number.cex = .2, tl.cex = .4, cl.cex = .4,
          tl.col = "black",cl.lim = c(0,1))
 
 dev.off()
@@ -160,7 +160,7 @@ par(mar = c(5,1,4,2) + 0.1)
 png('plots/TwinCorMat_NTR.png', res=400, height = 8000, width = 8000)
 
 corrplot(CorMatNTR$MZ ,method="square", outline = "black", order = "original",
-         tl.col = "black", tl.cex = 1, cl.lim = c(0,1),
+         tl.col = "black", tl.cex = 2, cl.lim = c(0,1), cl.cex = 2,
          col = brewer.pal(n = 8, name = 'BrBG'), 
          diag = F)
 mtext(text = "MZ correlations", side = 3, line = 0, adj = 0.5, las = 0, cex = 2 )
