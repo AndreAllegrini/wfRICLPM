@@ -73,10 +73,10 @@ This is a correlation matrix of TEDS variables called CovMatTEDS
 
 #### Visualize the data
 
-This is a correlation plot of the data used in the RICLPM. Four traits (externalizing, attention, internalizing, and social problems) measured at three time points (t1, t2 and t3). A general pattern of positive correlations can be observed, with expected stronger correlations for repeated measurements of the same trait. 
+Correlation plot of the data used in the RICLPM, including four traits (externalizing, attention, internalizing, and social problems) measured at three time points (t1, t2 and t3). A general pattern of positive correlations can be observed, with expected stronger correlations for repeated measurements of the same trait. 
 
 
-```{r, eval = F, echo = F}
+```{r, eval = F echo = F}
 
 library(corrplot)
 library(ggplot2)
@@ -144,7 +144,7 @@ Upper triangle shows correlations for MZ twins, lower triangle shows correlation
 
 Top left and bottom right squares are phenotypic correlations for twin 'a' and twin 'b' respectively, and are approximate symmetic matrices. While top right and bottom left squares are cross twin correlations, with expected stronger correlations (darker squares) for MZs. 
 
-```{r eval=F, echo = F, fig.height=12, fig.width=12}
+```{r eval=F echo = F, fig.height=12, fig.width=12}
 
 library(RColorBrewer)
 
@@ -160,18 +160,17 @@ par(mar = c(5,1,4,2) + 0.1)
 png('plots/TwinCorMat_NTR.png', res=400, height = 8000, width = 8000)
 
 corrplot(CorMatNTR$MZ ,method="square", outline = "black", order = "original",
-         tl.col = "black", tl.cex = .8, cl.lim = c(0,1),
+         tl.col = "black", tl.cex = 1, cl.lim = c(0,1),
          col = brewer.pal(n = 8, name = 'BrBG'), 
          diag = F)
-mtext(text = "MZ correlations", side = 3, line = 0, adj = 0.5, las = 0, cex = 1.5 )
-mtext(text = "DZ correlations", side = 2, line = 0, adj = 0.5, las = 3, cex = 1.5 )
+mtext(text = "MZ correlations", side = 3, line = 0, adj = 0.5, las = 0, cex = 2 )
+mtext(text = "DZ correlations", side = 2, line = 0, adj = 0.5, las = 3, cex = 2 )
 
 dev.off()
 
 ```
 
 ![](plots/TwinCorMat_NTR.png?raw=true)
-
 
 The following code can be used to generate the wfRICLPM model based on these data
 
