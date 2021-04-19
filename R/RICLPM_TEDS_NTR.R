@@ -1,73 +1,73 @@
 
-unconstrained <- 'ri_CND =~ 1*CON_t1 + 1*CON_t2 + 1*CON_t3
-ri_HYP =~ 1*HYP_t1 + 1*HYP_t2 + 1*HYP_t3
-ri_EMO =~ 1*EMp_t1 + 1*EMp_t2 + 1*EMp_t3
-ri_PER =~ 1*PEp_t1 + 1*PEp_t2 + 1*PEp_t3
+unconstrained <- 'ri_EXT =~ 1*EXT_t1 + 1*EXT_t2 + 1*EXT_t3
+ri_ATT =~ 1*ATT_t1 + 1*ATT_t2 + 1*ATT_t3
+ri_INT =~ 1*INT_t1 + 1*INT_t2 + 1*INT_t3
+ri_SOC =~ 1*SOC_t1 + 1*SOC_t2 + 1*SOC_t3
 
-ri_CND ~~ ri_CND
-ri_HYP ~~ ri_HYP
-ri_EMO ~~ ri_EMO
-ri_PER ~~ ri_PER
+ri_EXT ~~ ri_EXT
+ri_ATT ~~ ri_ATT
+ri_INT ~~ ri_INT
+ri_SOC ~~ ri_SOC
 
-ri_CND ~~ ri_HYP + ri_EMO + ri_PER
-ri_HYP ~~ ri_EMO + ri_PER
-ri_EMO ~~ ri_PER
+ri_EXT ~~ ri_ATT + ri_INT + ri_SOC
+ri_ATT ~~ ri_INT + ri_SOC
+ri_INT ~~ ri_SOC
 
-CON_t1 ~ CON_t1_mu*1
-CON_t2 ~ CON_t2_mu*1
-CON_t3 ~ CON_t3_mu*1
-HYP_t1 ~ HYP_t1_mu*1
-HYP_t2 ~ HYP_t2_mu*1
-HYP_t3 ~ HYP_t3_mu*1
-EMp_t1 ~ EMp_t1_mu*1
-EMp_t2 ~ EMp_t2_mu*1
-EMp_t3 ~ EMp_t3_mu*1
-PEp_t1 ~ PEp_t1_mu*1
-PEp_t2 ~ PEp_t2_mu*1
-PEp_t3 ~ PEp_t3_mu*1
+EXT_t1 ~ EXT_t1_mu*1
+EXT_t2 ~ EXT_t2_mu*1
+EXT_t3 ~ EXT_t3_mu*1
+ATT_t1 ~ ATT_t1_mu*1
+ATT_t2 ~ ATT_t2_mu*1
+ATT_t3 ~ ATT_t3_mu*1
+INT_t1 ~ INT_t1_mu*1
+INT_t2 ~ INT_t2_mu*1
+INT_t3 ~ INT_t3_mu*1
+SOC_t1 ~ SOC_t1_mu*1
+SOC_t2 ~ SOC_t2_mu*1
+SOC_t3 ~ SOC_t3_mu*1
 
-lat_CND1 =~ 1*CON_t1
-lat_CND2 =~ 1*CON_t2
-lat_CND3 =~ 1*CON_t3
-lat_HYP1 =~ 1*HYP_t1
-lat_HYP2 =~ 1*HYP_t2
-lat_HYP3 =~ 1*HYP_t3
-lat_EMO1 =~ 1*EMp_t1
-lat_EMO2 =~ 1*EMp_t2
-lat_EMO3 =~ 1*EMp_t3
-lat_PER1 =~ 1*PEp_t1
-lat_PER2 =~ 1*PEp_t2
-lat_PER3 =~ 1*PEp_t3
+lat_EXT1 =~ 1*EXT_t1
+lat_EXT2 =~ 1*EXT_t2
+lat_EXT3 =~ 1*EXT_t3
+lat_ATT1 =~ 1*ATT_t1
+lat_ATT2 =~ 1*ATT_t2
+lat_ATT3 =~ 1*ATT_t3
+lat_INT1 =~ 1*INT_t1
+lat_INT2 =~ 1*INT_t2
+lat_INT3 =~ 1*INT_t3
+lat_SOC1 =~ 1*SOC_t1
+lat_SOC2 =~ 1*SOC_t2
+lat_SOC3 =~ 1*SOC_t3
 
-lat_CND1 ~~ lat_HYP1 + lat_EMO1 + lat_PER1
-lat_CND2 ~~ lat_HYP2 + lat_EMO2 + lat_PER2
-lat_CND3 ~~ lat_HYP3 + lat_EMO3 + lat_PER3
-lat_HYP1 ~~ lat_EMO1 + lat_PER1
-lat_HYP2 ~~ lat_EMO2 + lat_PER2
-lat_HYP3 ~~ lat_EMO3 + lat_PER3
-lat_EMO1 ~~ lat_PER1
-lat_EMO2 ~~ lat_PER2
-lat_EMO3 ~~ lat_PER3
+lat_EXT1 ~~ lat_ATT1 + lat_INT1 + lat_SOC1
+lat_EXT2 ~~ lat_ATT2 + lat_INT2 + lat_SOC2
+lat_EXT3 ~~ lat_ATT3 + lat_INT3 + lat_SOC3
+lat_ATT1 ~~ lat_INT1 + lat_SOC1
+lat_ATT2 ~~ lat_INT2 + lat_SOC2
+lat_ATT3 ~~ lat_INT3 + lat_SOC3
+lat_INT1 ~~ lat_SOC1
+lat_INT2 ~~ lat_SOC2
+lat_INT3 ~~ lat_SOC3
 
-lat_CND2 ~ lat_CND1 + lat_HYP1 + lat_EMO1 + lat_PER1
-lat_CND3 ~ lat_CND2 + lat_HYP2 + lat_EMO2 + lat_PER2
-lat_HYP2 ~ lat_CND1 + lat_HYP1 + lat_EMO1 + lat_PER1
-lat_HYP3 ~ lat_CND2 + lat_HYP2 + lat_EMO2 + lat_PER2
-lat_EMO2 ~ lat_CND1 + lat_HYP1 + lat_EMO1 + lat_PER1
-lat_EMO3 ~ lat_CND2 + lat_HYP2 + lat_EMO2 + lat_PER2
-lat_PER2 ~ lat_CND1 + lat_HYP1 + lat_EMO1 + lat_PER1
-lat_PER3 ~ lat_CND2 + lat_HYP2 + lat_EMO2 + lat_PER2
+lat_EXT2 ~ lat_EXT1 + lat_ATT1 + lat_INT1 + lat_SOC1
+lat_EXT3 ~ lat_EXT2 + lat_ATT2 + lat_INT2 + lat_SOC2
+lat_ATT2 ~ lat_EXT1 + lat_ATT1 + lat_INT1 + lat_SOC1
+lat_ATT3 ~ lat_EXT2 + lat_ATT2 + lat_INT2 + lat_SOC2
+lat_INT2 ~ lat_EXT1 + lat_ATT1 + lat_INT1 + lat_SOC1
+lat_INT3 ~ lat_EXT2 + lat_ATT2 + lat_INT2 + lat_SOC2
+lat_SOC2 ~ lat_EXT1 + lat_ATT1 + lat_INT1 + lat_SOC1
+lat_SOC3 ~ lat_EXT2 + lat_ATT2 + lat_INT2 + lat_SOC2
 
-lat_CND1 ~~ lat_CND1
-lat_CND2 ~~ lat_CND2
-lat_CND3 ~~ lat_CND3
-lat_HYP1 ~~ lat_HYP1
-lat_HYP2 ~~ lat_HYP2
-lat_HYP3 ~~ lat_HYP3
-lat_EMO1 ~~ lat_EMO1
-lat_EMO2 ~~ lat_EMO2
-lat_EMO3 ~~ lat_EMO3
-lat_PER1 ~~ lat_PER1
-lat_PER2 ~~ lat_PER2
-lat_PER3 ~~ lat_PER3
+lat_EXT1 ~~ lat_EXT1
+lat_EXT2 ~~ lat_EXT2
+lat_EXT3 ~~ lat_EXT3
+lat_ATT1 ~~ lat_ATT1
+lat_ATT2 ~~ lat_ATT2
+lat_ATT3 ~~ lat_ATT3
+lat_INT1 ~~ lat_INT1
+lat_INT2 ~~ lat_INT2
+lat_INT3 ~~ lat_INT3
+lat_SOC1 ~~ lat_SOC1
+lat_SOC2 ~~ lat_SOC2
+lat_SOC3 ~~ lat_SOC3
 '

@@ -1,278 +1,280 @@
-WF_RICLPM_1 <- '
+WF_RICLPM <- '
 #random interecepts TWIN 1
 
-ri_CNDa =~ 1*CON_t1a + 1*CON_t2a + 1*CON_t3a
-ri_HYPa =~ 1*HYP_t1a + 1*HYP_t2a + 1*HYP_t3a
-ri_EMOa =~ 1*EMp_t1a + 1*EMp_t2a + 1*EMp_t3a
-ri_PERa =~ 1*PEp_t1a + 1*PEp_t2a + 1*PEp_t3a
+ri_EXTa =~ 1*EXT_t1a + 1*EXT_t2a + 1*EXT_t3a
+ri_ATTa =~ 1*ATT_t1a + 1*ATT_t2a + 1*ATT_t3a
+ri_INTa =~ 1*INT_t1a + 1*INT_t2a + 1*INT_t3a
+ri_SOCa =~ 1*SOC_t1a + 1*SOC_t2a + 1*SOC_t3a
 
 #random interecepts TWIN 2
 
-ri_CNDb =~ 1*CON_t1b + 1*CON_t2b + 1*CON_t3b
-ri_HYPb =~ 1*HYP_t1b + 1*HYP_t2b + 1*HYP_t3b
-ri_EMOb =~ 1*EMp_t1b + 1*EMp_t2b + 1*EMp_t3b
-ri_PERb =~ 1*PEp_t1b + 1*PEp_t2b + 1*PEp_t3b
+ri_EXTb =~ 1*EXT_t1b + 1*EXT_t2b + 1*EXT_t3b
+ri_ATTb =~ 1*ATT_t1b + 1*ATT_t2b + 1*ATT_t3b
+ri_INTb =~ 1*INT_t1b + 1*INT_t2b + 1*INT_t3b
+ri_SOCb =~ 1*SOC_t1b + 1*SOC_t2b + 1*SOC_t3b
 
 #RI variances equal across twins and zygosity 
 
-ri_CNDa ~~ c(vI_CND,vI_CND)*ri_CNDa
-ri_HYPa ~~ c(vI_HYP,vI_HYP)*ri_HYPa
-ri_EMOa ~~ c(vI_EMO,vI_EMO)*ri_EMOa
-ri_PERa ~~ c(vI_PER,vI_PER)*ri_PERa
+ri_EXTa ~~ c(vI_EXT,vI_EXT)*ri_EXTa
+ri_ATTa ~~ c(vI_ATT,vI_ATT)*ri_ATTa
+ri_INTa ~~ c(vI_INT,vI_INT)*ri_INTa
+ri_SOCa ~~ c(vI_SOC,vI_SOC)*ri_SOCa
 
-ri_CNDb ~~ c(vI_CND,vI_CND)*ri_CNDb
-ri_HYPb ~~ c(vI_HYP,vI_HYP)*ri_HYPb
-ri_EMOb ~~ c(vI_EMO,vI_EMO)*ri_EMOb
-ri_PERb ~~ c(vI_PER,vI_PER)*ri_PERb
+ri_EXTb ~~ c(vI_EXT,vI_EXT)*ri_EXTb
+ri_ATTb ~~ c(vI_ATT,vI_ATT)*ri_ATTb
+ri_INTb ~~ c(vI_INT,vI_INT)*ri_INTb
+ri_SOCb ~~ c(vI_SOC,vI_SOC)*ri_SOCb
 
 #RI covariances equal across twins and zygosity 
 
-ri_CNDa ~~ c(wI_CNDHYP,wI_CNDHYP)*ri_HYPa + c(wI_CNDEMO,wI_CNDEMO)*ri_EMOa + c(wI_CNDPER,wI_CNDPER)*ri_PERa
-ri_HYPa ~~ c(wI_HYPEMO,wI_HYPEMO)*ri_EMOa + c(wI_HYPPER,wI_HYPPER)*ri_PERa
-ri_EMOa ~~ c(wI_EMOPER,wI_EMOPER)*ri_PERa
+ri_EXTa ~~ c(wI_EXTATT,wI_EXTATT)*ri_ATTa + c(wI_EXTINT,wI_EXTINT)*ri_INTa + c(wI_EXTSOC,wI_EXTSOC)*ri_SOCa
+ri_ATTa ~~ c(wI_ATTINT,wI_ATTINT)*ri_INTa + c(wI_ATTSOC,wI_ATTSOC)*ri_SOCa
+ri_INTa ~~ c(wI_INTSOC,wI_INTSOC)*ri_SOCa
 
-ri_CNDb ~~ c(wI_CNDHYP,wI_CNDHYP)*ri_HYPb + c(wI_CNDEMO,wI_CNDEMO)*ri_EMOb + c(wI_CNDPER,wI_CNDPER)*ri_PERb
-ri_HYPb ~~ c(wI_HYPEMO,wI_HYPEMO)*ri_EMOb + c(wI_HYPPER,wI_HYPPER)*ri_PERb
-ri_EMOb ~~ c(wI_EMOPER,wI_EMOPER)*ri_PERb
+ri_EXTb ~~ c(wI_EXTATT,wI_EXTATT)*ri_ATTb + c(wI_EXTINT,wI_EXTINT)*ri_INTb + c(wI_EXTSOC,wI_EXTSOC)*ri_SOCb
+ri_ATTb ~~ c(wI_ATTINT,wI_ATTINT)*ri_INTb + c(wI_ATTSOC,wI_ATTSOC)*ri_SOCb
+ri_INTb ~~ c(wI_INTSOC,wI_INTSOC)*ri_SOCb
 
 #RI covariances between - different across zygosity
 
-ri_CNDa ~~ c(bI_CNDCND_dz,bI_CNDCND_mz)*ri_CNDb + c(bI_CNDHYP_dz,bI_CNDHYP_mz)*ri_HYPb + c(bI_CNDEMO_dz,bI_CNDEMO_mz)*ri_EMOb + c(bI_CNDPER_dz,bI_CNDPER_mz)*ri_PERb
-ri_HYPa ~~ c(bI_CNDHYP_dz,bI_CNDHYP_mz)*ri_CNDb + c(bI_HYPHYP_dz,bI_HYPHYP_mz)*ri_HYPb + c(bI_HYPEMO_dz,bI_HYPEMO_mz)*ri_EMOb + c(bI_HYPPER_dz,bI_HYPPER_mz)*ri_PERb
-ri_EMOa ~~ c(bI_CNDEMO_dz,bI_CNDEMO_mz)*ri_CNDb + c(bI_HYPEMO_dz,bI_HYPEMO_mz)*ri_HYPb + c(bI_EMOEMO_dz,bI_EMOEMO_mz)*ri_EMOb + c(bI_EMOPER_dz,bI_EMOPER_mz)*ri_PERb
-ri_PERa ~~ c(bI_CNDPER_dz,bI_CNDPER_mz)*ri_CNDb + c(bI_HYPPER_dz,bI_HYPPER_mz)*ri_HYPb + c(bI_EMOPER_dz,bI_EMOPER_mz)*ri_EMOb + c(bI_PERPER_dz,bI_PERPER_mz)*ri_PERb
+ri_EXTa ~~ c(bI_EXTEXT_dz,bI_EXTEXT_mz)*ri_EXTb + c(bI_EXTATT_dz,bI_EXTATT_mz)*ri_ATTb + c(bI_EXTINT_dz,bI_EXTINT_mz)*ri_INTb + c(bI_EXTSOC_dz,bI_EXTSOC_mz)*ri_SOCb
+ri_ATTa ~~ c(bI_EXTATT_dz,bI_EXTATT_mz)*ri_EXTb + c(bI_ATTATT_dz,bI_ATTATT_mz)*ri_ATTb + c(bI_ATTINT_dz,bI_ATTINT_mz)*ri_INTb + c(bI_ATTSOC_dz,bI_ATTSOC_mz)*ri_SOCb
+ri_INTa ~~ c(bI_EXTINT_dz,bI_EXTINT_mz)*ri_EXTb + c(bI_ATTINT_dz,bI_ATTINT_mz)*ri_ATTb + c(bI_INTINT_dz,bI_INTINT_mz)*ri_INTb + c(bI_INTSOC_dz,bI_INTSOC_mz)*ri_SOCb
+ri_SOCa ~~ c(bI_EXTSOC_dz,bI_EXTSOC_mz)*ri_EXTb + c(bI_ATTSOC_dz,bI_ATTSOC_mz)*ri_ATTb + c(bI_INTSOC_dz,bI_INTSOC_mz)*ri_INTb + c(bI_SOCSOC_dz,bI_SOCSOC_mz)*ri_SOCb
 
 # fixed intercepts - equal across twins and zygosity 
 
-CON_t1a ~ CON_t1_mu*1
-CON_t2a ~ CON_t2_mu*1
-CON_t3a ~ CON_t3_mu*1
-HYP_t1a ~ HYP_t1_mu*1
-HYP_t2a ~ HYP_t2_mu*1
-HYP_t3a ~ HYP_t3_mu*1
-EMp_t1a ~ EMp_t1_mu*1
-EMp_t2a ~ EMp_t2_mu*1
-EMp_t3a ~ EMp_t3_mu*1
-PEp_t1a ~ PEp_t1_mu*1
-PEp_t2a ~ PEp_t2_mu*1
-PEp_t3a ~ PEp_t3_mu*1
+EXT_t1a ~ EXT_t1_mu*1
+EXT_t2a ~ EXT_t2_mu*1
+EXT_t3a ~ EXT_t3_mu*1
+ATT_t1a ~ ATT_t1_mu*1
+ATT_t2a ~ ATT_t2_mu*1
+ATT_t3a ~ ATT_t3_mu*1
+INT_t1a ~ INT_t1_mu*1
+INT_t2a ~ INT_t2_mu*1
+INT_t3a ~ INT_t3_mu*1
+SOC_t1a ~ SOC_t1_mu*1
+SOC_t2a ~ SOC_t2_mu*1
+SOC_t3a ~ SOC_t3_mu*1
 
-CON_t1b ~ CON_t1_mu*1
-CON_t2b ~ CON_t2_mu*1
-CON_t3b ~ CON_t3_mu*1
-HYP_t1b ~ HYP_t1_mu*1
-HYP_t2b ~ HYP_t2_mu*1
-HYP_t3b ~ HYP_t3_mu*1
-EMp_t1b ~ EMp_t1_mu*1
-EMp_t2b ~ EMp_t2_mu*1
-EMp_t3b ~ EMp_t3_mu*1
-PEp_t1b ~ PEp_t1_mu*1
-PEp_t2b ~ PEp_t2_mu*1
-PEp_t3b ~ PEp_t3_mu*1
+EXT_t1b ~ EXT_t1_mu*1
+EXT_t2b ~ EXT_t2_mu*1
+EXT_t3b ~ EXT_t3_mu*1
+ATT_t1b ~ ATT_t1_mu*1
+ATT_t2b ~ ATT_t2_mu*1
+ATT_t3b ~ ATT_t3_mu*1
+INT_t1b ~ INT_t1_mu*1
+INT_t2b ~ INT_t2_mu*1
+INT_t3b ~ INT_t3_mu*1
+SOC_t1b ~ SOC_t1_mu*1
+SOC_t2b ~ SOC_t2_mu*1
+SOC_t3b ~ SOC_t3_mu*1
 
 #latent from observed 
 
-lat_CNDa1 =~ 1*CON_t1a
-lat_CNDa2 =~ 1*CON_t2a
-lat_CNDa3 =~ 1*CON_t3a
-lat_HYPa1 =~ 1*HYP_t1a
-lat_HYPa2 =~ 1*HYP_t2a
-lat_HYPa3 =~ 1*HYP_t3a
-lat_EMOa1 =~ 1*EMp_t1a
-lat_EMOa2 =~ 1*EMp_t2a
-lat_EMOa3 =~ 1*EMp_t3a
-lat_PERa1 =~ 1*PEp_t1a
-lat_PERa2 =~ 1*PEp_t2a
-lat_PERa3 =~ 1*PEp_t3a
+lat_EXTa1 =~ 1*EXT_t1a
+lat_EXTa2 =~ 1*EXT_t2a
+lat_EXTa3 =~ 1*EXT_t3a
+lat_ATTa1 =~ 1*ATT_t1a
+lat_ATTa2 =~ 1*ATT_t2a
+lat_ATTa3 =~ 1*ATT_t3a
+lat_INTa1 =~ 1*INT_t1a
+lat_INTa2 =~ 1*INT_t2a
+lat_INTa3 =~ 1*INT_t3a
+lat_SOCa1 =~ 1*SOC_t1a
+lat_SOCa2 =~ 1*SOC_t2a
+lat_SOCa3 =~ 1*SOC_t3a
 
-lat_CNDb1 =~ 1*CON_t1b
-lat_CNDb2 =~ 1*CON_t2b
-lat_CNDb3 =~ 1*CON_t3b
-lat_HYPb1 =~ 1*HYP_t1b
-lat_HYPb2 =~ 1*HYP_t2b
-lat_HYPb3 =~ 1*HYP_t3b
-lat_EMOb1 =~ 1*EMp_t1b
-lat_EMOb2 =~ 1*EMp_t2b
-lat_EMOb3 =~ 1*EMp_t3b
-lat_PERb1 =~ 1*PEp_t1b
-lat_PERb2 =~ 1*PEp_t2b
-lat_PERb3 =~ 1*PEp_t3b
+lat_EXTb1 =~ 1*EXT_t1b
+lat_EXTb2 =~ 1*EXT_t2b
+lat_EXTb3 =~ 1*EXT_t3b
+lat_ATTb1 =~ 1*ATT_t1b
+lat_ATTb2 =~ 1*ATT_t2b
+lat_ATTb3 =~ 1*ATT_t3b
+lat_INTb1 =~ 1*INT_t1b
+lat_INTb2 =~ 1*INT_t2b
+lat_INTb3 =~ 1*INT_t3b
+lat_SOCb1 =~ 1*SOC_t1b
+lat_SOCb2 =~ 1*SOC_t2b
+lat_SOCb3 =~ 1*SOC_t3b
 
 #regressions within - equal across twins and zygosity  
 
-lat_CNDa2 ~ c(rwCND_CND2,rwCND_CND2)*lat_CNDa1 + c(rwCND_HYP2,rwCND_HYP2)*lat_HYPa1 + c(rwCND_EMO2,rwCND_EMO2)*lat_EMOa1 + c(rwCND_PER2,rwCND_PER2)*lat_PERa1
-lat_CNDa3 ~ c(rwCND_CND3,rwCND_CND3)*lat_CNDa2 + c(rwCND_HYP3,rwCND_HYP3)*lat_HYPa2 + c(rwCND_EMO3,rwCND_EMO3)*lat_EMOa2 + c(rwCND_PER3,rwCND_PER3)*lat_PERa2
-lat_HYPa2 ~ c(rwHYP_CND2,rwHYP_CND2)*lat_CNDa1 + c(rwHYP_HYP2,rwHYP_HYP2)*lat_HYPa1 + c(rwHYP_EMO2,rwHYP_EMO2)*lat_EMOa1 + c(rwHYP_PER2,rwHYP_PER2)*lat_PERa1
-lat_HYPa3 ~ c(rwHYP_CND3,rwHYP_CND3)*lat_CNDa2 + c(rwHYP_HYP3,rwHYP_HYP3)*lat_HYPa2 + c(rwHYP_EMO3,rwHYP_EMO3)*lat_EMOa2 + c(rwHYP_PER3,rwHYP_PER3)*lat_PERa2
-lat_EMOa2 ~ c(rwEMO_CND2,rwEMO_CND2)*lat_CNDa1 + c(rwEMO_HYP2,rwEMO_HYP2)*lat_HYPa1 + c(rwEMO_EMO2,rwEMO_EMO2)*lat_EMOa1 + c(rwEMO_PER2,rwEMO_PER2)*lat_PERa1
-lat_EMOa3 ~ c(rwEMO_CND3,rwEMO_CND3)*lat_CNDa2 + c(rwEMO_HYP3,rwEMO_HYP3)*lat_HYPa2 + c(rwEMO_EMO3,rwEMO_EMO3)*lat_EMOa2 + c(rwEMO_PER3,rwEMO_PER3)*lat_PERa2
-lat_PERa2 ~ c(rwPER_CND2,rwPER_CND2)*lat_CNDa1 + c(rwPER_HYP2,rwPER_HYP2)*lat_HYPa1 + c(rwPER_EMO2,rwPER_EMO2)*lat_EMOa1 + c(rwPER_PER2,rwPER_PER2)*lat_PERa1
-lat_PERa3 ~ c(rwPER_CND3,rwPER_CND3)*lat_CNDa2 + c(rwPER_HYP3,rwPER_HYP3)*lat_HYPa2 + c(rwPER_EMO3,rwPER_EMO3)*lat_EMOa2 + c(rwPER_PER3,rwPER_PER3)*lat_PERa2
+lat_EXTa2 ~ c(rwEXT_EXT2,rwEXT_EXT2)*lat_EXTa1 + c(rwEXT_ATT2,rwEXT_ATT2)*lat_ATTa1 + c(rwEXT_INT2,rwEXT_INT2)*lat_INTa1 + c(rwEXT_SOC2,rwEXT_SOC2)*lat_SOCa1
+lat_EXTa3 ~ c(rwEXT_EXT3,rwEXT_EXT3)*lat_EXTa2 + c(rwEXT_ATT3,rwEXT_ATT3)*lat_ATTa2 + c(rwEXT_INT3,rwEXT_INT3)*lat_INTa2 + c(rwEXT_SOC3,rwEXT_SOC3)*lat_SOCa2
+lat_ATTa2 ~ c(rwATT_EXT2,rwATT_EXT2)*lat_EXTa1 + c(rwATT_ATT2,rwATT_ATT2)*lat_ATTa1 + c(rwATT_INT2,rwATT_INT2)*lat_INTa1 + c(rwATT_SOC2,rwATT_SOC2)*lat_SOCa1
+lat_ATTa3 ~ c(rwATT_EXT3,rwATT_EXT3)*lat_EXTa2 + c(rwATT_ATT3,rwATT_ATT3)*lat_ATTa2 + c(rwATT_INT3,rwATT_INT3)*lat_INTa2 + c(rwATT_SOC3,rwATT_SOC3)*lat_SOCa2
+lat_INTa2 ~ c(rwINT_EXT2,rwINT_EXT2)*lat_EXTa1 + c(rwINT_ATT2,rwINT_ATT2)*lat_ATTa1 + c(rwINT_INT2,rwINT_INT2)*lat_INTa1 + c(rwINT_SOC2,rwINT_SOC2)*lat_SOCa1
+lat_INTa3 ~ c(rwINT_EXT3,rwINT_EXT3)*lat_EXTa2 + c(rwINT_ATT3,rwINT_ATT3)*lat_ATTa2 + c(rwINT_INT3,rwINT_INT3)*lat_INTa2 + c(rwINT_SOC3,rwINT_SOC3)*lat_SOCa2
+lat_SOCa2 ~ c(rwSOC_EXT2,rwSOC_EXT2)*lat_EXTa1 + c(rwSOC_ATT2,rwSOC_ATT2)*lat_ATTa1 + c(rwSOC_INT2,rwSOC_INT2)*lat_INTa1 + c(rwSOC_SOC2,rwSOC_SOC2)*lat_SOCa1
+lat_SOCa3 ~ c(rwSOC_EXT3,rwSOC_EXT3)*lat_EXTa2 + c(rwSOC_ATT3,rwSOC_ATT3)*lat_ATTa2 + c(rwSOC_INT3,rwSOC_INT3)*lat_INTa2 + c(rwSOC_SOC3,rwSOC_SOC3)*lat_SOCa2
 
-lat_CNDb2 ~ c(rwCND_CND2,rwCND_CND2)*lat_CNDb1 + c(rwCND_HYP2,rwCND_HYP2)*lat_HYPb1 + c(rwCND_EMO2,rwCND_EMO2)*lat_EMOb1 + c(rwCND_PER2,rwCND_PER2)*lat_PERb1
-lat_CNDb3 ~ c(rwCND_CND3,rwCND_CND3)*lat_CNDb2 + c(rwCND_HYP3,rwCND_HYP3)*lat_HYPb2 + c(rwCND_EMO3,rwCND_EMO3)*lat_EMOb2 + c(rwCND_PER3,rwCND_PER3)*lat_PERb2
-lat_HYPb2 ~ c(rwHYP_CND2,rwHYP_CND2)*lat_CNDb1 + c(rwHYP_HYP2,rwHYP_HYP2)*lat_HYPb1 + c(rwHYP_EMO2,rwHYP_EMO2)*lat_EMOb1 + c(rwHYP_PER2,rwHYP_PER2)*lat_PERb1
-lat_HYPb3 ~ c(rwHYP_CND3,rwHYP_CND3)*lat_CNDb2 + c(rwHYP_HYP3,rwHYP_HYP3)*lat_HYPb2 + c(rwHYP_EMO3,rwHYP_EMO3)*lat_EMOb2 + c(rwHYP_PER3,rwHYP_PER3)*lat_PERb2
-lat_EMOb2 ~ c(rwEMO_CND2,rwEMO_CND2)*lat_CNDb1 + c(rwEMO_HYP2,rwEMO_HYP2)*lat_HYPb1 + c(rwEMO_EMO2,rwEMO_EMO2)*lat_EMOb1 + c(rwEMO_PER2,rwEMO_PER2)*lat_PERb1
-lat_EMOb3 ~ c(rwEMO_CND3,rwEMO_CND3)*lat_CNDb2 + c(rwEMO_HYP3,rwEMO_HYP3)*lat_HYPb2 + c(rwEMO_EMO3,rwEMO_EMO3)*lat_EMOb2 + c(rwEMO_PER3,rwEMO_PER3)*lat_PERb2
-lat_PERb2 ~ c(rwPER_CND2,rwPER_CND2)*lat_CNDb1 + c(rwPER_HYP2,rwPER_HYP2)*lat_HYPb1 + c(rwPER_EMO2,rwPER_EMO2)*lat_EMOb1 + c(rwPER_PER2,rwPER_PER2)*lat_PERb1
-lat_PERb3 ~ c(rwPER_CND3,rwPER_CND3)*lat_CNDb2 + c(rwPER_HYP3,rwPER_HYP3)*lat_HYPb2 + c(rwPER_EMO3,rwPER_EMO3)*lat_EMOb2 + c(rwPER_PER3,rwPER_PER3)*lat_PERb2
+lat_EXTb2 ~ c(rwEXT_EXT2,rwEXT_EXT2)*lat_EXTb1 + c(rwEXT_ATT2,rwEXT_ATT2)*lat_ATTb1 + c(rwEXT_INT2,rwEXT_INT2)*lat_INTb1 + c(rwEXT_SOC2,rwEXT_SOC2)*lat_SOCb1
+lat_EXTb3 ~ c(rwEXT_EXT3,rwEXT_EXT3)*lat_EXTb2 + c(rwEXT_ATT3,rwEXT_ATT3)*lat_ATTb2 + c(rwEXT_INT3,rwEXT_INT3)*lat_INTb2 + c(rwEXT_SOC3,rwEXT_SOC3)*lat_SOCb2
+lat_ATTb2 ~ c(rwATT_EXT2,rwATT_EXT2)*lat_EXTb1 + c(rwATT_ATT2,rwATT_ATT2)*lat_ATTb1 + c(rwATT_INT2,rwATT_INT2)*lat_INTb1 + c(rwATT_SOC2,rwATT_SOC2)*lat_SOCb1
+lat_ATTb3 ~ c(rwATT_EXT3,rwATT_EXT3)*lat_EXTb2 + c(rwATT_ATT3,rwATT_ATT3)*lat_ATTb2 + c(rwATT_INT3,rwATT_INT3)*lat_INTb2 + c(rwATT_SOC3,rwATT_SOC3)*lat_SOCb2
+lat_INTb2 ~ c(rwINT_EXT2,rwINT_EXT2)*lat_EXTb1 + c(rwINT_ATT2,rwINT_ATT2)*lat_ATTb1 + c(rwINT_INT2,rwINT_INT2)*lat_INTb1 + c(rwINT_SOC2,rwINT_SOC2)*lat_SOCb1
+lat_INTb3 ~ c(rwINT_EXT3,rwINT_EXT3)*lat_EXTb2 + c(rwINT_ATT3,rwINT_ATT3)*lat_ATTb2 + c(rwINT_INT3,rwINT_INT3)*lat_INTb2 + c(rwINT_SOC3,rwINT_SOC3)*lat_SOCb2
+lat_SOCb2 ~ c(rwSOC_EXT2,rwSOC_EXT2)*lat_EXTb1 + c(rwSOC_ATT2,rwSOC_ATT2)*lat_ATTb1 + c(rwSOC_INT2,rwSOC_INT2)*lat_INTb1 + c(rwSOC_SOC2,rwSOC_SOC2)*lat_SOCb1
+lat_SOCb3 ~ c(rwSOC_EXT3,rwSOC_EXT3)*lat_EXTb2 + c(rwSOC_ATT3,rwSOC_ATT3)*lat_ATTb2 + c(rwSOC_INT3,rwSOC_INT3)*lat_INTb2 + c(rwSOC_SOC3,rwSOC_SOC3)*lat_SOCb2
 
 #regressions between - equal across twins and zygosity 
 
-lat_CNDa2 ~ c(rbCND_CND2,rbCND_CND2)*lat_CNDb1 + c(rbCND_HYP2,rbCND_HYP2)*lat_HYPb1 + c(rbCND_EMO2,rbCND_EMO2)*lat_EMOb1 + c(rbCND_PER2,rbCND_PER2)*lat_PERb1
-lat_CNDa3 ~ c(rbCND_CND3,rbCND_CND3)*lat_CNDb2 + c(rbCND_HYP3,rbCND_HYP3)*lat_HYPb2 + c(rbCND_EMO3,rbCND_EMO3)*lat_EMOb2 + c(rbCND_PER3,rbCND_PER3)*lat_PERb2
-lat_HYPa2 ~ c(rbHYP_CND2,rbHYP_CND2)*lat_CNDb1 + c(rbHYP_HYP2,rbHYP_HYP2)*lat_HYPb1 + c(rbHYP_EMO2,rbHYP_EMO2)*lat_EMOb1 + c(rbHYP_PER2,rbHYP_PER2)*lat_PERb1
-lat_HYPa3 ~ c(rbHYP_CND3,rbHYP_CND3)*lat_CNDb2 + c(rbHYP_HYP3,rbHYP_HYP3)*lat_HYPb2 + c(rbHYP_EMO3,rbHYP_EMO3)*lat_EMOb2 + c(rbHYP_PER3,rbHYP_PER3)*lat_PERb2
-lat_EMOa2 ~ c(rbEMO_CND2,rbEMO_CND2)*lat_CNDb1 + c(rbEMO_HYP2,rbEMO_HYP2)*lat_HYPb1 + c(rbEMO_EMO2,rbEMO_EMO2)*lat_EMOb1 + c(rbEMO_PER2,rbEMO_PER2)*lat_PERb1
-lat_EMOa3 ~ c(rbEMO_CND3,rbEMO_CND3)*lat_CNDb2 + c(rbEMO_HYP3,rbEMO_HYP3)*lat_HYPb2 + c(rbEMO_EMO3,rbEMO_EMO3)*lat_EMOb2 + c(rbEMO_PER3,rbEMO_PER3)*lat_PERb2
-lat_PERa2 ~ c(rbPER_CND2,rbPER_CND2)*lat_CNDb1 + c(rbPER_HYP2,rbPER_HYP2)*lat_HYPb1 + c(rbPER_EMO2,rbPER_EMO2)*lat_EMOb1 + c(rbPER_PER2,rbPER_PER2)*lat_PERb1
-lat_PERa3 ~ c(rbPER_CND3,rbPER_CND3)*lat_CNDb2 + c(rbPER_HYP3,rbPER_HYP3)*lat_HYPb2 + c(rbPER_EMO3,rbPER_EMO3)*lat_EMOb2 + c(rbPER_PER3,rbPER_PER3)*lat_PERb2
+lat_EXTa2 ~ c(rbEXT_EXT2,rbEXT_EXT2)*lat_EXTb1 + c(rbEXT_ATT2,rbEXT_ATT2)*lat_ATTb1 + c(rbEXT_INT2,rbEXT_INT2)*lat_INTb1 + c(rbEXT_SOC2,rbEXT_SOC2)*lat_SOCb1
+lat_EXTa3 ~ c(rbEXT_EXT3,rbEXT_EXT3)*lat_EXTb2 + c(rbEXT_ATT3,rbEXT_ATT3)*lat_ATTb2 + c(rbEXT_INT3,rbEXT_INT3)*lat_INTb2 + c(rbEXT_SOC3,rbEXT_SOC3)*lat_SOCb2
+lat_ATTa2 ~ c(rbATT_EXT2,rbATT_EXT2)*lat_EXTb1 + c(rbATT_ATT2,rbATT_ATT2)*lat_ATTb1 + c(rbATT_INT2,rbATT_INT2)*lat_INTb1 + c(rbATT_SOC2,rbATT_SOC2)*lat_SOCb1
+lat_ATTa3 ~ c(rbATT_EXT3,rbATT_EXT3)*lat_EXTb2 + c(rbATT_ATT3,rbATT_ATT3)*lat_ATTb2 + c(rbATT_INT3,rbATT_INT3)*lat_INTb2 + c(rbATT_SOC3,rbATT_SOC3)*lat_SOCb2
+lat_INTa2 ~ c(rbINT_EXT2,rbINT_EXT2)*lat_EXTb1 + c(rbINT_ATT2,rbINT_ATT2)*lat_ATTb1 + c(rbINT_INT2,rbINT_INT2)*lat_INTb1 + c(rbINT_SOC2,rbINT_SOC2)*lat_SOCb1
+lat_INTa3 ~ c(rbINT_EXT3,rbINT_EXT3)*lat_EXTb2 + c(rbINT_ATT3,rbINT_ATT3)*lat_ATTb2 + c(rbINT_INT3,rbINT_INT3)*lat_INTb2 + c(rbINT_SOC3,rbINT_SOC3)*lat_SOCb2
+lat_SOCa2 ~ c(rbSOC_EXT2,rbSOC_EXT2)*lat_EXTb1 + c(rbSOC_ATT2,rbSOC_ATT2)*lat_ATTb1 + c(rbSOC_INT2,rbSOC_INT2)*lat_INTb1 + c(rbSOC_SOC2,rbSOC_SOC2)*lat_SOCb1
+lat_SOCa3 ~ c(rbSOC_EXT3,rbSOC_EXT3)*lat_EXTb2 + c(rbSOC_ATT3,rbSOC_ATT3)*lat_ATTb2 + c(rbSOC_INT3,rbSOC_INT3)*lat_INTb2 + c(rbSOC_SOC3,rbSOC_SOC3)*lat_SOCb2
 
-lat_CNDb2 ~ c(rbCND_CND2,rbCND_CND2)*lat_CNDa1 + c(rbCND_HYP2,rbCND_HYP2)*lat_HYPa1 + c(rbCND_EMO2,rbCND_EMO2)*lat_EMOa1 + c(rbCND_PER2,rbCND_PER2)*lat_PERa1
-lat_CNDb3 ~ c(rbCND_CND3,rbCND_CND3)*lat_CNDa2 + c(rbCND_HYP3,rbCND_HYP3)*lat_HYPa2 + c(rbCND_EMO3,rbCND_EMO3)*lat_EMOa2 + c(rbCND_PER3,rbCND_PER3)*lat_PERa2
-lat_HYPb2 ~ c(rbHYP_CND2,rbHYP_CND2)*lat_CNDa1 + c(rbHYP_HYP2,rbHYP_HYP2)*lat_HYPa1 + c(rbHYP_EMO2,rbHYP_EMO2)*lat_EMOa1 + c(rbHYP_PER2,rbHYP_PER2)*lat_PERa1
-lat_HYPb3 ~ c(rbHYP_CND3,rbHYP_CND3)*lat_CNDa2 + c(rbHYP_HYP3,rbHYP_HYP3)*lat_HYPa2 + c(rbHYP_EMO3,rbHYP_EMO3)*lat_EMOa2 + c(rbHYP_PER3,rbHYP_PER3)*lat_PERa2
-lat_EMOb2 ~ c(rbEMO_CND2,rbEMO_CND2)*lat_CNDa1 + c(rbEMO_HYP2,rbEMO_HYP2)*lat_HYPa1 + c(rbEMO_EMO2,rbEMO_EMO2)*lat_EMOa1 + c(rbEMO_PER2,rbEMO_PER2)*lat_PERa1
-lat_EMOb3 ~ c(rbEMO_CND3,rbEMO_CND3)*lat_CNDa2 + c(rbEMO_HYP3,rbEMO_HYP3)*lat_HYPa2 + c(rbEMO_EMO3,rbEMO_EMO3)*lat_EMOa2 + c(rbEMO_PER3,rbEMO_PER3)*lat_PERa2
-lat_PERb2 ~ c(rbPER_CND2,rbPER_CND2)*lat_CNDa1 + c(rbPER_HYP2,rbPER_HYP2)*lat_HYPa1 + c(rbPER_EMO2,rbPER_EMO2)*lat_EMOa1 + c(rbPER_PER2,rbPER_PER2)*lat_PERa1
-lat_PERb3 ~ c(rbPER_CND3,rbPER_CND3)*lat_CNDa2 + c(rbPER_HYP3,rbPER_HYP3)*lat_HYPa2 + c(rbPER_EMO3,rbPER_EMO3)*lat_EMOa2 + c(rbPER_PER3,rbPER_PER3)*lat_PERa2
+lat_EXTb2 ~ c(rbEXT_EXT2,rbEXT_EXT2)*lat_EXTa1 + c(rbEXT_ATT2,rbEXT_ATT2)*lat_ATTa1 + c(rbEXT_INT2,rbEXT_INT2)*lat_INTa1 + c(rbEXT_SOC2,rbEXT_SOC2)*lat_SOCa1
+lat_EXTb3 ~ c(rbEXT_EXT3,rbEXT_EXT3)*lat_EXTa2 + c(rbEXT_ATT3,rbEXT_ATT3)*lat_ATTa2 + c(rbEXT_INT3,rbEXT_INT3)*lat_INTa2 + c(rbEXT_SOC3,rbEXT_SOC3)*lat_SOCa2
+lat_ATTb2 ~ c(rbATT_EXT2,rbATT_EXT2)*lat_EXTa1 + c(rbATT_ATT2,rbATT_ATT2)*lat_ATTa1 + c(rbATT_INT2,rbATT_INT2)*lat_INTa1 + c(rbATT_SOC2,rbATT_SOC2)*lat_SOCa1
+lat_ATTb3 ~ c(rbATT_EXT3,rbATT_EXT3)*lat_EXTa2 + c(rbATT_ATT3,rbATT_ATT3)*lat_ATTa2 + c(rbATT_INT3,rbATT_INT3)*lat_INTa2 + c(rbATT_SOC3,rbATT_SOC3)*lat_SOCa2
+lat_INTb2 ~ c(rbINT_EXT2,rbINT_EXT2)*lat_EXTa1 + c(rbINT_ATT2,rbINT_ATT2)*lat_ATTa1 + c(rbINT_INT2,rbINT_INT2)*lat_INTa1 + c(rbINT_SOC2,rbINT_SOC2)*lat_SOCa1
+lat_INTb3 ~ c(rbINT_EXT3,rbINT_EXT3)*lat_EXTa2 + c(rbINT_ATT3,rbINT_ATT3)*lat_ATTa2 + c(rbINT_INT3,rbINT_INT3)*lat_INTa2 + c(rbINT_SOC3,rbINT_SOC3)*lat_SOCa2
+lat_SOCb2 ~ c(rbSOC_EXT2,rbSOC_EXT2)*lat_EXTa1 + c(rbSOC_ATT2,rbSOC_ATT2)*lat_ATTa1 + c(rbSOC_INT2,rbSOC_INT2)*lat_INTa1 + c(rbSOC_SOC2,rbSOC_SOC2)*lat_SOCa1
+lat_SOCb3 ~ c(rbSOC_EXT3,rbSOC_EXT3)*lat_EXTa2 + c(rbSOC_ATT3,rbSOC_ATT3)*lat_ATTa2 + c(rbSOC_INT3,rbSOC_INT3)*lat_INTa2 + c(rbSOC_SOC3,rbSOC_SOC3)*lat_SOCa2
 
 
 #latent variances - equal across twins and zygosity 
 
-lat_CNDa1 ~~ c(e_CND1,e_CND1)*lat_CNDa1
-lat_CNDa2 ~~ c(e_CND2,e_CND2)*lat_CNDa2
-lat_CNDa3 ~~ c(e_CND3,e_CND3)*lat_CNDa3
-lat_HYPa1 ~~ c(e_HYP1,e_HYP1)*lat_HYPa1
-lat_HYPa2 ~~ c(e_HYP2,e_HYP2)*lat_HYPa2
-lat_HYPa3 ~~ c(e_HYP3,e_HYP3)*lat_HYPa3
-lat_EMOa1 ~~ c(e_EMO1,e_EMO1)*lat_EMOa1
-lat_EMOa2 ~~ c(e_EMO2,e_EMO2)*lat_EMOa2
-lat_EMOa3 ~~ c(e_EMO3,e_EMO3)*lat_EMOa3
-lat_PERa1 ~~ c(e_PER1,e_PER1)*lat_PERa1
-lat_PERa2 ~~ c(e_PER2,e_PER2)*lat_PERa2
-lat_PERa3 ~~ c(e_PER3,e_PER3)*lat_PERa3 
+lat_EXTa1 ~~ c(e_EXT1,e_EXT1)*lat_EXTa1
+lat_EXTa2 ~~ c(e_EXT2,e_EXT2)*lat_EXTa2
+lat_EXTa3 ~~ c(e_EXT3,e_EXT3)*lat_EXTa3
+lat_ATTa1 ~~ c(e_ATT1,e_ATT1)*lat_ATTa1
+lat_ATTa2 ~~ c(e_ATT2,e_ATT2)*lat_ATTa2
+lat_ATTa3 ~~ c(e_ATT3,e_ATT3)*lat_ATTa3
+lat_INTa1 ~~ c(e_INT1,e_INT1)*lat_INTa1
+lat_INTa2 ~~ c(e_INT2,e_INT2)*lat_INTa2
+lat_INTa3 ~~ c(e_INT3,e_INT3)*lat_INTa3
+lat_SOCa1 ~~ c(e_SOC1,e_SOC1)*lat_SOCa1
+lat_SOCa2 ~~ c(e_SOC2,e_SOC2)*lat_SOCa2
+lat_SOCa3 ~~ c(e_SOC3,e_SOC3)*lat_SOCa3 
 
-lat_CNDb1 ~~ c(e_CND1,e_CND1)*lat_CNDb1
-lat_CNDb2 ~~ c(e_CND2,e_CND2)*lat_CNDb2
-lat_CNDb3 ~~ c(e_CND3,e_CND3)*lat_CNDb3
-lat_HYPb1 ~~ c(e_HYP1,e_HYP1)*lat_HYPb1
-lat_HYPb2 ~~ c(e_HYP2,e_HYP2)*lat_HYPb2
-lat_HYPb3 ~~ c(e_HYP3,e_HYP3)*lat_HYPb3
-lat_EMOb1 ~~ c(e_EMO1,e_EMO1)*lat_EMOb1
-lat_EMOb2 ~~ c(e_EMO2,e_EMO2)*lat_EMOb2
-lat_EMOb3 ~~ c(e_EMO3,e_EMO3)*lat_EMOb3
-lat_PERb1 ~~ c(e_PER1,e_PER1)*lat_PERb1
-lat_PERb2 ~~ c(e_PER2,e_PER2)*lat_PERb2
-lat_PERb3 ~~ c(e_PER3,e_PER3)*lat_PERb3 
+lat_EXTb1 ~~ c(e_EXT1,e_EXT1)*lat_EXTb1
+lat_EXTb2 ~~ c(e_EXT2,e_EXT2)*lat_EXTb2
+lat_EXTb3 ~~ c(e_EXT3,e_EXT3)*lat_EXTb3
+lat_ATTb1 ~~ c(e_ATT1,e_ATT1)*lat_ATTb1
+lat_ATTb2 ~~ c(e_ATT2,e_ATT2)*lat_ATTb2
+lat_ATTb3 ~~ c(e_ATT3,e_ATT3)*lat_ATTb3
+lat_INTb1 ~~ c(e_INT1,e_INT1)*lat_INTb1
+lat_INTb2 ~~ c(e_INT2,e_INT2)*lat_INTb2
+lat_INTb3 ~~ c(e_INT3,e_INT3)*lat_INTb3
+lat_SOCb1 ~~ c(e_SOC1,e_SOC1)*lat_SOCb1
+lat_SOCb2 ~~ c(e_SOC2,e_SOC2)*lat_SOCb2
+lat_SOCb3 ~~ c(e_SOC3,e_SOC3)*lat_SOCb3 
 
 #lantent covariances within - equal across twins and zygosity 
 
-lat_CNDa1 ~~ c(cw_CNDHYP1,cw_CNDHYP1)*lat_HYPa1 + c(cw_CNDEMO1,cw_CNDEMO1)*lat_EMOa1 + c(cw_CNDPER1,cw_CNDPER1)*lat_PERa1
-lat_CNDa2 ~~ c(cw_CNDHYP2,cw_CNDHYP2)*lat_HYPa2 + c(cw_CNDEMO2,cw_CNDEMO2)*lat_EMOa2 + c(cw_CNDPER2,cw_CNDPER2)*lat_PERa2
-lat_CNDa3 ~~ c(cw_CNDHYP3,cw_CNDHYP3)*lat_HYPa3 + c(cw_CNDEMO3,cw_CNDEMO3)*lat_EMOa3 + c(cw_CNDPER3,cw_CNDPER3)*lat_PERa3
-lat_HYPa1 ~~ c(cw_HYPEMO1,cw_HYPEMO1)*lat_EMOa1 + c(cw_HYPPER1,cw_HYPPER1)*lat_PERa1
-lat_HYPa2 ~~ c(cw_HYPEMO2,cw_HYPEMO2)*lat_EMOa2 + c(cw_HYPPER2,cw_HYPPER2)*lat_PERa2
-lat_HYPa3 ~~ c(cw_HYPEMO3,cw_HYPEMO3)*lat_EMOa3 + c(cw_HYPPER3,cw_HYPPER3)*lat_PERa3
-lat_EMOa1 ~~ c(cw_EMOPER1,cw_EMOPER1)*lat_PERa1
-lat_EMOa2 ~~ c(cw_EMOPER2,cw_EMOPER2)*lat_PERa2
-lat_EMOa3 ~~ c(cw_EMOPER3,cw_EMOPER3)*lat_PERa3
+lat_EXTa1 ~~ c(cw_EXTATT1,cw_EXTATT1)*lat_ATTa1 + c(cw_EXTINT1,cw_EXTINT1)*lat_INTa1 + c(cw_EXTSOC1,cw_EXTSOC1)*lat_SOCa1
+lat_EXTa2 ~~ c(cw_EXTATT2,cw_EXTATT2)*lat_ATTa2 + c(cw_EXTINT2,cw_EXTINT2)*lat_INTa2 + c(cw_EXTSOC2,cw_EXTSOC2)*lat_SOCa2
+lat_EXTa3 ~~ c(cw_EXTATT3,cw_EXTATT3)*lat_ATTa3 + c(cw_EXTINT3,cw_EXTINT3)*lat_INTa3 + c(cw_EXTSOC3,cw_EXTSOC3)*lat_SOCa3
+lat_ATTa1 ~~ c(cw_ATTINT1,cw_ATTINT1)*lat_INTa1 + c(cw_ATTSOC1,cw_ATTSOC1)*lat_SOCa1
+lat_ATTa2 ~~ c(cw_ATTINT2,cw_ATTINT2)*lat_INTa2 + c(cw_ATTSOC2,cw_ATTSOC2)*lat_SOCa2
+lat_ATTa3 ~~ c(cw_ATTINT3,cw_ATTINT3)*lat_INTa3 + c(cw_ATTSOC3,cw_ATTSOC3)*lat_SOCa3
+lat_INTa1 ~~ c(cw_INTSOC1,cw_INTSOC1)*lat_SOCa1
+lat_INTa2 ~~ c(cw_INTSOC2,cw_INTSOC2)*lat_SOCa2
+lat_INTa3 ~~ c(cw_INTSOC3,cw_INTSOC3)*lat_SOCa3
 
-lat_CNDb1 ~~ c(cw_CNDHYP1,cw_CNDHYP1)*lat_HYPb1 + c(cw_CNDEMO1,cw_CNDEMO1)*lat_EMOb1 + c(cw_CNDPER1,cw_CNDPER1)*lat_PERb1
-lat_CNDb2 ~~ c(cw_CNDHYP2,cw_CNDHYP2)*lat_HYPb2 + c(cw_CNDEMO2,cw_CNDEMO2)*lat_EMOb2 + c(cw_CNDPER2,cw_CNDPER2)*lat_PERb2
-lat_CNDb3 ~~ c(cw_CNDHYP3,cw_CNDHYP3)*lat_HYPb3 + c(cw_CNDEMO3,cw_CNDEMO3)*lat_EMOb3 + c(cw_CNDPER3,cw_CNDPER3)*lat_PERb3
-lat_HYPb1 ~~ c(cw_HYPEMO1,cw_HYPEMO1)*lat_EMOb1 + c(cw_HYPPER1,cw_HYPPER1)*lat_PERb1
-lat_HYPb2 ~~ c(cw_HYPEMO2,cw_HYPEMO2)*lat_EMOb2 + c(cw_HYPPER2,cw_HYPPER2)*lat_PERb2
-lat_HYPb3 ~~ c(cw_HYPEMO3,cw_HYPEMO3)*lat_EMOb3 + c(cw_HYPPER3,cw_HYPPER3)*lat_PERb3
-lat_EMOb1 ~~ c(cw_EMOPER1,cw_EMOPER1)*lat_PERb1
-lat_EMOb2 ~~ c(cw_EMOPER2,cw_EMOPER2)*lat_PERb2
-lat_EMOb3 ~~ c(cw_EMOPER3,cw_EMOPER3)*lat_PERb3
+lat_EXTb1 ~~ c(cw_EXTATT1,cw_EXTATT1)*lat_ATTb1 + c(cw_EXTINT1,cw_EXTINT1)*lat_INTb1 + c(cw_EXTSOC1,cw_EXTSOC1)*lat_SOCb1
+lat_EXTb2 ~~ c(cw_EXTATT2,cw_EXTATT2)*lat_ATTb2 + c(cw_EXTINT2,cw_EXTINT2)*lat_INTb2 + c(cw_EXTSOC2,cw_EXTSOC2)*lat_SOCb2
+lat_EXTb3 ~~ c(cw_EXTATT3,cw_EXTATT3)*lat_ATTb3 + c(cw_EXTINT3,cw_EXTINT3)*lat_INTb3 + c(cw_EXTSOC3,cw_EXTSOC3)*lat_SOCb3
+lat_ATTb1 ~~ c(cw_ATTINT1,cw_ATTINT1)*lat_INTb1 + c(cw_ATTSOC1,cw_ATTSOC1)*lat_SOCb1
+lat_ATTb2 ~~ c(cw_ATTINT2,cw_ATTINT2)*lat_INTb2 + c(cw_ATTSOC2,cw_ATTSOC2)*lat_SOCb2
+lat_ATTb3 ~~ c(cw_ATTINT3,cw_ATTINT3)*lat_INTb3 + c(cw_ATTSOC3,cw_ATTSOC3)*lat_SOCb3
+lat_INTb1 ~~ c(cw_INTSOC1,cw_INTSOC1)*lat_SOCb1
+lat_INTb2 ~~ c(cw_INTSOC2,cw_INTSOC2)*lat_SOCb2
+lat_INTb3 ~~ c(cw_INTSOC3,cw_INTSOC3)*lat_SOCb3
 
 #latent covariances between - different across zygosity
 
-lat_CNDa1 ~~ c(cb_CNDCND1_dz,cb_CNDCND1_mz)*lat_CNDb1 + c(cb_CNDHYP1_dz,cb_CNDHYP1_mz)*lat_HYPb1 + c(cb_CNDEMO1_dz,cb_CNDEMO1_mz)*lat_EMOb1 + c(cb_CNDPER1_dz,cb_CNDPER1_mz)*lat_PERb1
-lat_HYPa1 ~~  c(cb_CNDHYP1_dz,cb_CNDHYP1_mz)*lat_CNDb1 + c(cb_HYPHYP1_dz,cb_HYPHYP1_mz)*lat_HYPb1 + c(cb_HYPEMO1_dz,cb_HYPEMO1_mz)*lat_EMOb1 + c(cb_HYPPER1_dz,cb_HYPPER1_mz)*lat_PERb1
-lat_EMOa1 ~~ c(cb_CNDEMO1_dz,cb_CNDEMO1_mz)*lat_CNDb1 + c(cb_HYPEMO1_dz,cb_HYPEMO1_mz)*lat_HYPb1 + c(cb_EMOEMO1_dz,cb_EMOEMO1_mz)*lat_EMOb1 + c(cb_EMOPER1_dz,cb_EMOPER1_mz)*lat_PERb1
-lat_PERa1 ~~ c(cb_CNDPER1_dz,cb_CNDPER1_mz)*lat_CNDb1 + c(cb_HYPPER1_dz,cb_HYPPER1_mz)*lat_HYPb1 + c(cb_EMOPER1_dz,cb_EMOPER1_mz)*lat_EMOb1 + c(cb_PERPER1_dz,cb_PERPER1_mz)*lat_PERb1
+lat_EXTa1 ~~ c(cb_EXTEXT1_dz,cb_EXTEXT1_mz)*lat_EXTb1 + c(cb_EXTATT1_dz,cb_EXTATT1_mz)*lat_ATTb1 + c(cb_EXTINT1_dz,cb_EXTINT1_mz)*lat_INTb1 + c(cb_EXTSOC1_dz,cb_EXTSOC1_mz)*lat_SOCb1
+lat_ATTa1 ~~  c(cb_EXTATT1_dz,cb_EXTATT1_mz)*lat_EXTb1 + c(cb_ATTATT1_dz,cb_ATTATT1_mz)*lat_ATTb1 + c(cb_ATTINT1_dz,cb_ATTINT1_mz)*lat_INTb1 + c(cb_ATTSOC1_dz,cb_ATTSOC1_mz)*lat_SOCb1
+lat_INTa1 ~~ c(cb_EXTINT1_dz,cb_EXTINT1_mz)*lat_EXTb1 + c(cb_ATTINT1_dz,cb_ATTINT1_mz)*lat_ATTb1 + c(cb_INTINT1_dz,cb_INTINT1_mz)*lat_INTb1 + c(cb_INTSOC1_dz,cb_INTSOC1_mz)*lat_SOCb1
+lat_SOCa1 ~~ c(cb_EXTSOC1_dz,cb_EXTSOC1_mz)*lat_EXTb1 + c(cb_ATTSOC1_dz,cb_ATTSOC1_mz)*lat_ATTb1 + c(cb_INTSOC1_dz,cb_INTSOC1_mz)*lat_INTb1 + c(cb_SOCSOC1_dz,cb_SOCSOC1_mz)*lat_SOCb1
 
-lat_CNDa2 ~~ c(cb_CNDCND2_dz,cb_CNDCND2_mz)*lat_CNDb2 + c(cb_CNDHYP2_dz,cb_CNDHYP2_mz)*lat_HYPb2 + c(cb_CNDEMO2_dz,cb_CNDEMO2_mz)*lat_EMOb2 + c(cb_CNDPER2_dz,cb_CNDPER2_mz)*lat_PERb2
-lat_HYPa2 ~~  c(cb_CNDHYP2_dz,cb_CNDHYP2_mz)*lat_CNDb2 + c(cb_HYPHYP2_dz,cb_HYPHYP2_mz)*lat_HYPb2 + c(cb_HYPEMO2_dz,cb_HYPEMO2_mz)*lat_EMOb2 + c(cb_HYPPER2_dz,cb_HYPPER2_mz)*lat_PERb2
-lat_EMOa2 ~~ c(cb_CNDEMO2_dz,cb_CNDEMO2_mz)*lat_CNDb2 + c(cb_HYPEMO2_dz,cb_HYPEMO2_mz)*lat_HYPb2 + c(cb_EMOEMO2_dz,cb_EMOEMO2_mz)*lat_EMOb2 + c(cb_EMOPER2_dz,cb_EMOPER2_mz)*lat_PERb2
-lat_PERa2 ~~ c(cb_CNDPER2_dz,cb_CNDPER2_mz)*lat_CNDb2 + c(cb_HYPPER2_dz,cb_HYPPER2_mz)*lat_HYPb2 + c(cb_EMOPER2_dz,cb_EMOPER2_mz)*lat_EMOb2 + c(cb_PERPER2_dz,cb_PERPER2_mz)*lat_PERb2
+lat_EXTa2 ~~ c(cb_EXTEXT2_dz,cb_EXTEXT2_mz)*lat_EXTb2 + c(cb_EXTATT2_dz,cb_EXTATT2_mz)*lat_ATTb2 + c(cb_EXTINT2_dz,cb_EXTINT2_mz)*lat_INTb2 + c(cb_EXTSOC2_dz,cb_EXTSOC2_mz)*lat_SOCb2
+lat_ATTa2 ~~  c(cb_EXTATT2_dz,cb_EXTATT2_mz)*lat_EXTb2 + c(cb_ATTATT2_dz,cb_ATTATT2_mz)*lat_ATTb2 + c(cb_ATTINT2_dz,cb_ATTINT2_mz)*lat_INTb2 + c(cb_ATTSOC2_dz,cb_ATTSOC2_mz)*lat_SOCb2
+lat_INTa2 ~~ c(cb_EXTINT2_dz,cb_EXTINT2_mz)*lat_EXTb2 + c(cb_ATTINT2_dz,cb_ATTINT2_mz)*lat_ATTb2 + c(cb_INTINT2_dz,cb_INTINT2_mz)*lat_INTb2 + c(cb_INTSOC2_dz,cb_INTSOC2_mz)*lat_SOCb2
+lat_SOCa2 ~~ c(cb_EXTSOC2_dz,cb_EXTSOC2_mz)*lat_EXTb2 + c(cb_ATTSOC2_dz,cb_ATTSOC2_mz)*lat_ATTb2 + c(cb_INTSOC2_dz,cb_INTSOC2_mz)*lat_INTb2 + c(cb_SOCSOC2_dz,cb_SOCSOC2_mz)*lat_SOCb2
 
-lat_CNDa3 ~~ c(cb_CNDCND3_dz,cb_CNDCND3_mz)*lat_CNDb3 + c(cb_CNDHYP3_dz,cb_CNDHYP3_mz)*lat_HYPb3 + c(cb_CNDEMO3_dz,cb_CNDEMO3_mz)*lat_EMOb3 + c(cb_CNDPER3_dz,cb_CNDPER3_mz)*lat_PERb3
-lat_HYPa3 ~~  c(cb_CNDHYP3_dz,cb_CNDHYP3_mz)*lat_CNDb3 + c(cb_HYPHYP3_dz,cb_HYPHYP3_mz)*lat_HYPb3 + c(cb_HYPEMO3_dz,cb_HYPEMO3_mz)*lat_EMOb3 + c(cb_HYPPER3_dz,cb_HYPPER3_mz)*lat_PERb3
-lat_EMOa3 ~~ c(cb_CNDEMO3_dz,cb_CNDEMO3_mz)*lat_CNDb3 + c(cb_HYPEMO3_dz,cb_HYPEMO3_mz)*lat_HYPb3 + c(cb_EMOEMO3_dz,cb_EMOEMO3_mz)*lat_EMOb3 + c(cb_EMOPER3_dz,cb_EMOPER3_mz)*lat_PERb3
-lat_PERa3 ~~ c(cb_CNDPER3_dz,cb_CNDPER3_mz)*lat_CNDb3 + c(cb_HYPPER3_dz,cb_HYPPER3_mz)*lat_HYPb3 + c(cb_EMOPER3_dz,cb_EMOPER3_mz)*lat_EMOb3 + c(cb_PERPER3_dz,cb_PERPER3_mz)*lat_PERb3
+lat_EXTa3 ~~ c(cb_EXTEXT3_dz,cb_EXTEXT3_mz)*lat_EXTb3 + c(cb_EXTATT3_dz,cb_EXTATT3_mz)*lat_ATTb3 + c(cb_EXTINT3_dz,cb_EXTINT3_mz)*lat_INTb3 + c(cb_EXTSOC3_dz,cb_EXTSOC3_mz)*lat_SOCb3
+lat_ATTa3 ~~  c(cb_EXTATT3_dz,cb_EXTATT3_mz)*lat_EXTb3 + c(cb_ATTATT3_dz,cb_ATTATT3_mz)*lat_ATTb3 + c(cb_ATTINT3_dz,cb_ATTINT3_mz)*lat_INTb3 + c(cb_ATTSOC3_dz,cb_ATTSOC3_mz)*lat_SOCb3
+lat_INTa3 ~~ c(cb_EXTINT3_dz,cb_EXTINT3_mz)*lat_EXTb3 + c(cb_ATTINT3_dz,cb_ATTINT3_mz)*lat_ATTb3 + c(cb_INTINT3_dz,cb_INTINT3_mz)*lat_INTb3 + c(cb_INTSOC3_dz,cb_INTSOC3_mz)*lat_SOCb3
+lat_SOCa3 ~~ c(cb_EXTSOC3_dz,cb_EXTSOC3_mz)*lat_EXTb3 + c(cb_ATTSOC3_dz,cb_ATTSOC3_mz)*lat_ATTb3 + c(cb_INTSOC3_dz,cb_INTSOC3_mz)*lat_INTb3 + c(cb_SOCSOC3_dz,cb_SOCSOC3_mz)*lat_SOCb3
 
 
 #ACE Random intercepts
 
-a2CND := 2*(bI_CNDCND_mz-bI_CNDCND_dz)
-c2CND :=(2*bI_CNDCND_dz)-bI_CNDCND_mz
-e2CND := 1-bI_CNDCND_mz
+a2EXT := 2*(bI_EXTEXT_mz-bI_EXTEXT_dz)
+c2EXT :=(2*bI_EXTEXT_dz)-bI_EXTEXT_mz
+e2EXT := 1-bI_EXTEXT_mz
 
-a2HYP := (4*bI_HYPHYP_dz)-bI_HYPHYP_mz
-d2HYP := (2*bI_HYPHYP_mz) - (4*bI_HYPHYP_dz)
-e2HYP := 1-bI_HYPHYP_mz
+a2ATT := (4*bI_ATTATT_dz)-bI_ATTATT_mz
+d2ATT := (2*bI_ATTATT_mz) - (4*bI_ATTATT_dz)
+e2ATT := 1-bI_ATTATT_mz
  
-a2EMO := 2*(bI_EMOEMO_mz-bI_EMOEMO_dz)
-c2EMO :=(2*bI_EMOEMO_dz)-bI_EMOEMO_mz
-e2EMO := 1-bI_EMOEMO_mz
+a2INT := 2*(bI_INTINT_mz-bI_INTINT_dz)
+c2INT :=(2*bI_INTINT_dz)-bI_INTINT_mz
+e2INT := 1-bI_INTINT_mz
 
-a2PER := 2*(bI_PERPER_mz-bI_PERPER_dz)
-c2PER :=(2*bI_PERPER_dz)-bI_PERPER_mz
-e2PER := 1-bI_PERPER_mz
+a2SOC := 2*(bI_SOCSOC_mz-bI_SOCSOC_dz)
+c2SOC :=(2*bI_SOCSOC_dz)-bI_SOCSOC_mz
+e2SOC := 1-bI_SOCSOC_mz
 
-a1cnd := 2*(cb_CNDCND1_mz-cb_CNDCND1_dz) 
-c1cnd :=(2*cb_CNDCND1_dz)-cb_CNDCND1_mz
-e1cnd := 1-cb_CNDCND1_mz
+#residuals ADCE
 
-a1hyp := (4*cb_HYPHYP1_dz)-cb_HYPHYP1_mz
-d1hyp := (2*cb_HYPHYP1_mz) - (4*cb_HYPHYP1_dz)
-e1hyp := 1-cb_HYPHYP1_mz
+a1EXTr := 2*(cb_EXTEXT1_mz-cb_EXTEXT1_dz) 
+c1EXTr :=(2*cb_EXTEXT1_dz)-cb_EXTEXT1_mz
+e1EXTr := 1-cb_EXTEXT1_mz
 
-a1emo := (4*cb_EMOEMO1_dz)-cb_EMOEMO1_mz
-d1emo :=(2*cb_EMOEMO1_mz) - (4*cb_EMOEMO1_dz)
-e1emo := 1-cb_EMOEMO1_mz
+a1ATTr := (4*cb_ATTATT1_dz)-cb_ATTATT1_mz
+d1ATTr := (2*cb_ATTATT1_mz) - (4*cb_ATTATT1_dz)
+e1ATTr := 1-cb_ATTATT1_mz
 
-a1per := 2*(cb_PERPER1_mz-cb_PERPER1_dz)
-c1per :=(2*cb_PERPER1_dz)-cb_PERPER1_mz
-e1per := 1-cb_PERPER1_mz
+a1INTr := (4*cb_INTINT1_dz)-cb_INTINT1_mz
+d1INTr :=(2*cb_INTINT1_mz) - (4*cb_INTINT1_dz)
+e1INTr := 1-cb_INTINT1_mz
 
-
-
-a2cnd := 2*(cb_CNDCND2_mz-cb_CNDCND2_dz) 
-c2cnd :=(2*cb_CNDCND2_dz)-cb_CNDCND2_mz
-e2cnd := 1-cb_CNDCND2_mz
-
-a2hyp := (4*cb_HYPHYP2_dz)-cb_HYPHYP2_mz
-d2hyp := (2*cb_HYPHYP2_mz) - (4*cb_HYPHYP2_dz)
-e2hyp := 1-cb_HYPHYP2_mz
-
-a2emo := 2*(cb_EMOEMO2_mz-cb_EMOEMO2_dz)
-c2emo :=(2*cb_EMOEMO2_dz)-cb_EMOEMO2_mz
-e2emo := 1-cb_EMOEMO2_mz
-
-a2per := (4*cb_PERPER2_dz)-cb_PERPER2_mz
-d2per :=(2*cb_PERPER2_mz) - (4*cb_PERPER2_dz)
-e2per := 1-cb_PERPER2_mz
+a1SOCr := 2*(cb_SOCSOC1_mz-cb_SOCSOC1_dz)
+c1SOCr :=(2*cb_SOCSOC1_dz)-cb_SOCSOC1_mz
+e1SOCr := 1-cb_SOCSOC1_mz
 
 
-a3cnd := 2*(cb_CNDCND3_mz-cb_CNDCND3_dz) 
-c3cnd :=(2*cb_CNDCND3_dz)-cb_CNDCND3_mz
-e3cnd := 1-cb_CNDCND3_mz
 
-a3hyp := (4*cb_HYPHYP3_dz)-cb_HYPHYP3_mz
-d3hyp := (2*cb_HYPHYP3_mz) - (4*cb_HYPHYP3_dz)
-e3hyp := 1-cb_HYPHYP3_mz
+a2EXTr := 2*(cb_EXTEXT2_mz-cb_EXTEXT2_dz) 
+c2EXTr :=(2*cb_EXTEXT2_dz)-cb_EXTEXT2_mz
+e2EXTr := 1-cb_EXTEXT2_mz
 
-a3emo := 2*(cb_EMOEMO3_mz-cb_EMOEMO3_dz)
-c3emo :=(2*cb_EMOEMO3_dz)-cb_EMOEMO3_mz
-e3emo := 1-cb_EMOEMO3_mz
+a2ATTr := (4*cb_ATTATT2_dz)-cb_ATTATT2_mz
+d2ATTr := (2*cb_ATTATT2_mz) - (4*cb_ATTATT2_dz)
+e2ATTr := 1-cb_ATTATT2_mz
 
-a3per := (4*cb_PERPER3_dz)-cb_PERPER3_mz
-d3per :=(2*cb_PERPER3_mz) - (4*cb_PERPER3_dz)
-e3per := 1-cb_PERPER3_mz
+a2INTr := 2*(cb_INTINT2_mz-cb_INTINT2_dz)
+c2INTr :=(2*cb_INTINT2_dz)-cb_INTINT2_mz
+e2INTr := 1-cb_INTINT2_mz
+
+a2SOCr := (4*cb_SOCSOC2_dz)-cb_SOCSOC2_mz
+d2SOCr :=(2*cb_SOCSOC2_mz) - (4*cb_SOCSOC2_dz)
+e2SOCr := 1-cb_SOCSOC2_mz
+
+
+a3EXTr := 2*(cb_EXTEXT3_mz-cb_EXTEXT3_dz) 
+c3EXTr :=(2*cb_EXTEXT3_dz)-cb_EXTEXT3_mz
+e3EXTr := 1-cb_EXTEXT3_mz
+
+a3ATTr := (4*cb_ATTATT3_dz)-cb_ATTATT3_mz
+d3ATTr := (2*cb_ATTATT3_mz) - (4*cb_ATTATT3_dz)
+e3ATTr := 1-cb_ATTATT3_mz
+
+a3INTr := 2*(cb_INTINT3_mz-cb_INTINT3_dz)
+c3INTr :=(2*cb_INTINT3_dz)-cb_INTINT3_mz
+e3INTr := 1-cb_INTINT3_mz
+
+a3SOCr := (4*cb_SOCSOC3_dz)-cb_SOCSOC3_mz
+d3SOCr :=(2*cb_SOCSOC3_mz) - (4*cb_SOCSOC3_dz)
+e3SOCr := 1-cb_SOCSOC3_mz
 '
