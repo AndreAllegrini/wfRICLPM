@@ -51,7 +51,6 @@ fit <- lavaan(obj$model,
           auto.var = F) 
 ```
 
-
 ## Test manuscript models: 
 
 We provide models and summary level data (correlation matrices) to replicate results from the manuscript.
