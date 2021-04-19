@@ -134,7 +134,6 @@ load(url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/data/CorMat_zyg
 
 ```
 
-
 This is a list object containing covariance matrices of variables employed for MZ and DZ twins. 
 
 #### Visualize the data
@@ -144,7 +143,6 @@ Plot of correlations by zigosity (MZ vs DZ twins), for four traits (EXT, ATT, IN
 Upper triangle shows correlations for MZ twins, lower triangle shows correlations in DZs. 
 
 Top left and bottom right squares are phenotypic correlations for twin 'a' and twin 'b' respectively, and are approximate symmetic matrices. While top right and bottom left squares are cross twin correlations, with expected stronger correlations (darker squares) for MZs. 
-
 
 ```{r eval=F, echo = F, fig.height=12, fig.width=12}
 
@@ -226,7 +224,6 @@ summary(wfRICLPM_test, standardized = TRUE)
 Note the wfRICLPM function has been written on insights from the [riclpmr](http://johnflournoy.science/riclpmr/) package.
 
 Please check this [link](https://github.com/jflournoy/riclpmr) for generating syntax for the RI-CLPM, and this [blog](https://jflournoy.github.io/2017/10/20/riclpm-lavaan-demo/) for an explainer on the RICLPM. 
-
 
 Things to update: 
 
