@@ -1,13 +1,7 @@
 
 # wfRICLPM
 
-wfRICLPM is a function to create a RI-CLPM lavaan model including sibling regressions overtime, while taking into account the fact that family members resemble eachother. See below for the model specification. 
-
-Things to update: 
-
-* constrained version overtime 
-* only (DZ) siblings (no twins)
-* add Falconer's formula
+wfRICLPM is a function to create a RI-CLPM lavaan model including sibling regressions overtime, while taking into account the fact that family members resemble eachother.  
 
 Source as: 
 
@@ -26,11 +20,11 @@ varNames = list(Trait_1 = c("t11", "t12", "t13"),
 sibSub = c("a", "b")
 ```
 
-and outputs a list containing wfRICLPM building blocks, and the full model to be fed to lavaan. 
+and outputs a list containing the wfRICLPM building blocks, and the full model to be fed to lavaan. 
 
-Current version assumes monozygotic and dyzogotyc twin paris are supplied.
+Current version assumes monozygotic and dyzogotyc twin pairs are supplied, and that data are in wide format.
 
-## Run as: 
+### Run as: 
 
 ```{r}
 
@@ -76,7 +70,7 @@ load(url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/data/CovMat_TED
 
 ```
 
-This is a correlation matrix of TEDS variables called CorMatTEDS
+This is a correlation matrix of TEDS variables called CovMatTEDS
 
 #### Visualize the data
 
@@ -90,7 +84,7 @@ library(ggplot2)
 
 load('data/CovMat_TEDS.Rdata')
 
-png('plots/corMat_TEDS.png', res=350, height = 2000, width = 2000)
+png('plots/covMat_TEDS.png', res=350, height = 2000, width = 2000)
 
 corrplot(cov2cor(CorMatTEDS) ,method = "square", type = 'upper', diag = FALSE, 
          addCoef.col = "black", number.cex = .7, 
@@ -205,6 +199,9 @@ cat(obj$model)
 
 ```
 
+See wfRICLPM_TEDS.R and wfRICLPM_NTR.R for the model specification.
+
+Run as: 
 
 ```{r}
 
@@ -230,3 +227,10 @@ summary(wfRICLPM_test, standardized = TRUE)
 Note the wfRICLPM function has been written on insights from the [riclpmr](http://johnflournoy.science/riclpmr/) package.
 
 Please check this [link](https://github.com/jflournoy/riclpmr) for generating syntax for the RI-CLPM, and this [blog](https://jflournoy.github.io/2017/10/20/riclpm-lavaan-demo/) for an explainer on the RICLPM. 
+
+
+Things to update: 
+
+* constrained version overtime 
+* only (DZ) siblings (no twins)
+* add Falconer's formula
