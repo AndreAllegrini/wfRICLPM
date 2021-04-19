@@ -100,7 +100,7 @@ dev.off()
 
 ```
 
-![observed correlation matrix](https://github.com/AndreAllegrini/wfRICLPM/tree/master/plots/corMat_TEDS.png)
+![observed correlation matrix](https://github.com/AndreAllegrini/wfRICLPM/tree/master/plots/corMat_TEDS.png?raw=true)
 
 Fit the RICLPM model:
 
@@ -133,11 +133,11 @@ summary(RICLPM_fit, standardized = TRUE)
 You can test the wfRICLPM function using the following code:
 
 ```{r}
+
 library(devtools)
 library(lavaan)
 
 load(url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/data/CorMat_zyg_NTR.RData")) #load var/covar matrix by zygosity
-
 
 ```
 
@@ -150,7 +150,7 @@ The following code is used to create a plot of correlations by zigosity (MZ vs D
 
 Upper triangle shows correlations for MZ twins, lower triangle shows correlations in DZs. 
 
-As before it can be observed a general pattern of positive correlations, with stronger relationships for repeated instances of the same trait overtime. Top left and bottom right squares are phenotypic correlations for twin 'a' and twin 'b' respectively, and are approximate symmetic matrices. While top right and bottom left squares are cross twin correlations, with expected stronger correlations (darker squares) for MZs. 
+As before a pattern of positive correlations can be observed, with stronger relationships for repeated instances of the same trait overtime. Top left and bottom right squares are phenotypic correlations for twin 'a' and twin 'b' respectively, and are approximate symmetic matrices. While top right and bottom left squares are cross twin correlations, with expected stronger correlations (darker squares) for MZs. 
 
 ```{r eval=F, fig.height=12, fig.width=12}
 
@@ -177,12 +177,13 @@ dev.off()
 
 ```
 
-![observed correlation matrix](https://github.com/AndreAllegrini/wfRICLPM/tree/master/plots/TwinCorMat_NTR.png)
+![](https://github.com/AndreAllegrini/wfRICLPM/blob/master/plots/TwinCorMat_NTR.png)
 
 
 The following code can be used to generate the wfRICLPM model based on these data
 
 ```{r eval=F}
+
 source('R/wfRICLPM.func.R')
 
 #define variables for wfRICLPM function
@@ -226,4 +227,4 @@ summary(wfRICLPM_test, standardized = TRUE)
 
 Note the wfRICLPM function has been written on insights from the [riclpmr](http://johnflournoy.science/riclpmr/) package.
 
-Please check this link for [generating syntax for the RI-CLPM](https://github.com/jflournoy/riclpmr), and this [blog](https://jflournoy.github.io/2017/10/20/riclpm-lavaan-demo/) for an explainer on the RICLPM. 
+Please check this [link](https://github.com/jflournoy/riclpmr) for generating syntax for the RI-CLPM, and this [blog](https://jflournoy.github.io/2017/10/20/riclpm-lavaan-demo/) for an explainer on the RICLPM. 
