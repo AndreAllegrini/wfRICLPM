@@ -83,6 +83,7 @@ This is a correlation matrix of TEDS variables called CorMatTEDS
 
 This is a correlation plot of the data used in the RICLPM. Four traits (externalizing, attention, internalizing, and social problems) measured at three time points (t1, t2 and t3). A general pattern of positive correlations can be observed, with expected stronger correlations for repeated measurements of the same trait. 
 
+
 ```{r, eval = F}
 
 library(corrplot)
@@ -100,7 +101,7 @@ dev.off()
 
 ```
 
-![observed correlation matrix](https://github.com/AndreAllegrini/wfRICLPM/tree/master/plots/corMat_TEDS.png?raw=true)
+![](plots/corMat_TEDS.png?raw=true)
 
 Fit the RICLPM model:
 
@@ -152,6 +153,7 @@ Upper triangle shows correlations for MZ twins, lower triangle shows correlation
 
 As before a pattern of positive correlations can be observed, with stronger relationships for repeated instances of the same trait overtime. Top left and bottom right squares are phenotypic correlations for twin 'a' and twin 'b' respectively, and are approximate symmetic matrices. While top right and bottom left squares are cross twin correlations, with expected stronger correlations (darker squares) for MZs. 
 
+
 ```{r eval=F, fig.height=12, fig.width=12}
 
 library(RColorBrewer)
@@ -177,7 +179,7 @@ dev.off()
 
 ```
 
-![](https://github.com/AndreAllegrini/wfRICLPM/blob/master/plots/TwinCorMat_NTR.png)
+![](https://github.com/AndreAllegrini/wfRICLPM/blob/master/plots/TwinCorMat_NTR.png?raw=true)
 
 
 The following code can be used to generate the wfRICLPM model based on these data
