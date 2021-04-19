@@ -72,7 +72,6 @@ Source the RICLPM model and summary data for TEDS:
 ```{r}
 library(devtools)
 
-
 load(url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/data/CovMat_TEDS.RData")) #load var/covar matrix TEDS 
 
 ```
@@ -92,7 +91,6 @@ library(ggplot2)
 load('data/CovMat_TEDS.Rdata')
 
 png('plots/corMat_TEDS.png', res=350, height = 2000, width = 2000)
-
 
 corrplot(cov2cor(CorMatTEDS) ,method = "square", type = 'upper', diag = FALSE, 
          addCoef.col = "black", number.cex = .7, 
@@ -144,7 +142,7 @@ load(url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/data/CorMat_zyg
 ```
 
 
-This is a list containing correlation matrices of variables employed for MZ and DZ twins. 
+This is a list object containing covariance matrices of variables employed for MZ and DZ twins. 
 
 #### Visualize the data
 
@@ -161,12 +159,14 @@ library(RColorBrewer)
 
 load('data/CovMat_zyg_NTR.RData')
       
+CorMatNTR$MZ <- cov2cor(CorMatNTR$MZ)
+CorMatNTR$DZ <- cov2cor(CorMatNTR$DZ)
 
 CorMatNTR$MZ[lower.tri(CorMatNTR$MZ)] <- CorMatNTR$DZ[lower.tri(CorMatNTR$DZ)] 
 
 par(mar = c(5,1,4,2) + 0.1) 
 
-png('plots/TwinCorMat_NTR.png', res=450, height = 8000, width = 8000)
+png('plots/TwinCorMat_NTR.png', res=400, height = 8000, width = 8000)
 
 corrplot(CorMatNTR$MZ ,method="square", outline = "black", order = "original",
          tl.col = "black", tl.cex = .8, cl.lim = c(0,1),
@@ -176,7 +176,6 @@ mtext(text = "MZ correlations", side = 3, line = 0, adj = 0.5, las = 0, cex = 1.
 mtext(text = "DZ correlations", side = 2, line = 0, adj = 0.5, las = 3, cex = 1.5 )
 
 dev.off()
-
 
 ```
 
