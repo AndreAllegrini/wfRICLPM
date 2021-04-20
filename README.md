@@ -83,7 +83,7 @@ library(ggplot2)
 
 load('data/CovMat_TEDS.Rdata')
 
-png('plots/covMat_TEDS.png', res=350, height = 800, width = 800)
+png('plots/corMat_TEDS.png', res=350, height = 800, width = 800)
 
 corrplot(cov2cor(CorMatTEDS) ,method = "square", type = 'upper', outline = "black", 
          diag = FALSE, addCoef.col = "black", number.cex = .2, tl.cex = .4, cl.cex = .4,
@@ -195,7 +195,7 @@ cat(obj$model)
 
 ```
 
-See wfRICLPM_TEDS.R and wfRICLPM_NTR.R for the model specification.
+See [wfRICLPM_TEDS.R](R/wfRICLPM_TEDS.R) and [wfRICLPM_NTR.R](R/wfRICLPM_NTR.R) for the model specification.
 
 Run as: 
 
