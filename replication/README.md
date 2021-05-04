@@ -29,9 +29,9 @@ Correlation plot of the data used in the RICLPM, including four traits (external
 library(corrplot)
 library(ggplot2)
 
-load('data/CovMat_TEDS.Rdata')
+load('../data/CovMat_TEDS.Rdata')
 
-png('plots/corMat_TEDS.png', res=350, height = 800, width = 800)
+png('../plots/corMat_TEDS.png', res=350, height = 800, width = 800)
 
 corrplot(cov2cor(CorMatTEDS) ,method = "square", type = 'upper', outline = "black", 
          diag = FALSE, addCoef.col = "black", number.cex = .2, tl.cex = .4, cl.cex = .4,
@@ -41,7 +41,7 @@ dev.off()
 
 ```
 
-![](plots/corMat_TEDS.png?raw=true)
+![](../plots/corMat_TEDS.png?raw=true)
 
 Fit the RICLPM model:
 
@@ -96,7 +96,7 @@ Top left and bottom right squares are phenotypic correlations for twin 'a' and t
 
 library(RColorBrewer)
 
-load('data/CovMat_zyg_NTR.RData')
+load('../data/CovMat_zyg_NTR.RData')
       
 CorMatNTR$MZ <- cov2cor(CorMatNTR$MZ)
 CorMatNTR$DZ <- cov2cor(CorMatNTR$DZ)
@@ -105,7 +105,7 @@ CorMatNTR$MZ[lower.tri(CorMatNTR$MZ)] <- CorMatNTR$DZ[lower.tri(CorMatNTR$DZ)]
 
 par(mar = c(5,1,4,2) + 0.1) 
 
-png('plots/TwinCorMat_NTR.png', res=400, height = 8000, width = 8000)
+png('../plots/TwinCorMat_NTR.png', res=400, height = 8000, width = 8000)
 
 corrplot(CorMatNTR$MZ ,method="square", outline = "black", order = "original",
          tl.col = "black", tl.cex = 2, cl.lim = c(0,1), cl.cex = 2,
@@ -118,7 +118,7 @@ dev.off()
 
 ```
 
-![](plots/TwinCorMat_NTR.png?raw=true)
+![](../plots/TwinCorMat_NTR.png?raw=true)
 
 The following code can be used to generate the wfRICLPM model based on these data
 

@@ -53,7 +53,7 @@ fit <- lavaan(obj$model,
 
 ## Tutorial on manuscript models: 
 
-We provide a [tutorial](replication/Untitled.Rmd) to replicate results from our [manuscript]() including both RICLPM and WFRICLPM models.
+We provide a [tutorial](replication/README.md) to replicate results from our [manuscript]() including both RICLPM and WFRICLPM models.
 
 
 Note the wfRICLPM function has been written on insights from the [riclpmr](http://johnflournoy.science/riclpmr/) package.
