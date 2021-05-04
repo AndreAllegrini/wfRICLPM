@@ -1,7 +1,7 @@
 
 # wfRICLPM
 
-wfRICLPM is a function to create a RI-CLPM lavaan model including sibling regressions overtime, while taking into account the fact that family members resemble eachother.  
+wfRICLPM is a function to create a RI-CLPM (**Hamaker et al., 2015**) lavaan model including sibling regressions overtime, while taking into account the fact that family members resemble eachother.  
 
 Source as: 
 
@@ -55,13 +55,14 @@ fit <- lavaan(obj$model,
 
 We provide a [tutorial](replication/README.md) to replicate results from our [manuscript]() including both RICLPM and WFRICLPM models.
 
+### Acknowledgments
 
-PLease note that the wfRICLPM function has been written on insights from the [riclpmr](http://johnflournoy.science/riclpmr/) package.
+Note that the wfRICLPM function has been written on insights from the [riclpmr](http://johnflournoy.science/riclpmr/) package.
 
-Please check this [link](https://github.com/jflournoy/riclpmr) for generating syntax for the RI-CLPM, and this [blog](https://jflournoy.github.io/2017/10/20/riclpm-lavaan-demo/) for an explainer on the RICLPM. 
+Please do check this [link](https://github.com/jflournoy/riclpmr) for generating syntax for the RI-CLPM, and this [blog](https://jflournoy.github.io/2017/10/20/riclpm-lavaan-demo/) for an explainer on the RICLPM. 
 
-Things to update: 
 
-* constrained version overtime 
-* only (DZ) siblings (no twins)
-* add Falconer's formula
+### References 
+
+**Hamaker, E. L., Kuiper, R. M., & Grasman, R. P. (2015).** A critique of the cross-lagged panel model. Psychological methods, 20(1), 102.
+
