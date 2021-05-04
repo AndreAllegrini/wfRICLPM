@@ -27,13 +27,13 @@ Correlation plot of the data used in the RICLPM, including four traits (external
 ```{r, eval = F echo = F}
 
 library(corrplot)
-library(ggplot2)
 
 load('../data/CovMat_TEDS.Rdata')
 
 png('../plots/corMat_TEDS.png', res=350, height = 800, width = 800)
 
-corrplot(cov2cor(CorMatTEDS), method = "square", type = 'upper', outline = "black", 
+corrplot(cov2cor(CorMatTEDS), #convert covariance matrix to correlation matrix
+         method = "square", type = 'upper', outline = "black", 
          diag = FALSE, addCoef.col = "black", number.cex = .2, tl.cex = .4, cl.cex = .4,
          tl.col = "black",cl.lim = c(0,1))
 
@@ -75,9 +75,6 @@ You can test the wfRICLPM function using the following code:
 
 ```{r}
 
-library(devtools)
-library(lavaan)
-
 load(url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/data/CorMat_zyg_NTR.RData")) #load var/covar matrix by zygosity
 
 ```
@@ -94,9 +91,11 @@ Top left and bottom right squares are phenotypic correlations for twin 'a' and t
 
 ```{r eval=F echo = F, fig.height=12, fig.width=12}
 
+library(RColorBrewer)
+
 load('../data/CovMat_zyg_NTR.RData')
       
-CorMatNTR$MZ <- cov2cor(CorMatNTR$MZ)
+CorMatNTR$MZ <- cov2cor(CorMatNTR$MZ) #convert covariance matrix to correlation matrix
 CorMatNTR$DZ <- cov2cor(CorMatNTR$DZ)
 
 CorMatNTR$MZ[lower.tri(CorMatNTR$MZ)] <- CorMatNTR$DZ[lower.tri(CorMatNTR$DZ)] 
@@ -105,7 +104,7 @@ par(mar = c(5,1,4,2) + 0.1)
 
 png('../plots/TwinCorMat_NTR.png', res=400, height = 8000, width = 8000)
 
-corrplot(CorMatNTR$MZ ,method="square", outline = "black", order = "original",
+corrplot(CorMatNTR$MZ, method="square", outline = "black", order = "original",
          tl.col = "black", tl.cex = 2, cl.lim = c(0,1), cl.cex = 2,
          col = brewer.pal(n = 8, name = 'BrBG'), 
          diag = F)
