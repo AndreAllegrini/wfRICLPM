@@ -123,7 +123,7 @@ The following code can be used to generate the wfRICLPM model based on these dat
 
 ```{r eval=F}
 
-source('R/wfRICLPM.func.R')
+source('../R/wfRICLPM.func.R')
 
 #define variables for wfRICLPM function
 varNames <- list(

@@ -13,11 +13,11 @@ wfRICLPM takes in a list of traits and measurement occasions, and a vector of si
 
 ```{r}
 
-varNames = list(Trait_1 = c("t11", "t12", "t13"),
-                Trait_2 = c("t21", "t22", "t23"),
-                Trait_3 = c("t31", "t32", "t33"))
+varNames = list(Trait_1 = c("t1_1", "t1_2", "t1_3"),
+                Trait_2 = c("t2_1", "t2_2", "t2_3"),
+                Trait_3 = c("t3_1", "t3_2", "t3_3"))
 
-sibSub = c("a", "b")
+sibSub = c("i", "j")
 ```
 
 and outputs a list containing the wfRICLPM building blocks, and the full model to be fed to lavaan. 
