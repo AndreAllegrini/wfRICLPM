@@ -1,5 +1,5 @@
 
-unconstrained <- 'ri_EXT =~ 1*EXT_t1 + 1*EXT_t2 + 1*EXT_t3
+RICLPM_unconst <- 'ri_EXT =~ 1*EXT_t1 + 1*EXT_t2 + 1*EXT_t3
 ri_ATT =~ 1*ATT_t1 + 1*ATT_t2 + 1*ATT_t3
 ri_INT =~ 1*INT_t1 + 1*INT_t2 + 1*INT_t3
 ri_SOC =~ 1*SOC_t1 + 1*SOC_t2 + 1*SOC_t3

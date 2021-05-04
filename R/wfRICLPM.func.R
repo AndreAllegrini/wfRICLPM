@@ -191,9 +191,9 @@ wfRICLPM <- function(varNames = varNames, sibSub = sibSub, constrained = FALSE)
     df <- as.data.frame(latNames, stringsAsFactors = FALSE)
     nSets <- dim(df)[1]
     nTraits <- dim(df)[2]
-   
-        for (i in 1:nSets)
-        {
+    
+    for (S in sibSub){
+        for (i in 1:nSets){
             set <- df[i, ]
             for (j in 1:(nTraits - 1))
             {
@@ -203,7 +203,7 @@ wfRICLPM <- function(varNames = varNames, sibSub = sibSub, constrained = FALSE)
                   S), collapse = " + ")))
             }
         }
-    
+    }
     ConCov_w_txt <- paste(ConCov, collapse = "\n")
     
     # Contemporaneous correlations between siblings differ by zygosity - matrix of labels is symmetric   

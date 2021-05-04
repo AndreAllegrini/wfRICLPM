@@ -56,7 +56,7 @@ fit <- lavaan(obj$model,
 We provide a [tutorial](replication/README.md) to replicate results from our [manuscript]() including both RICLPM and WFRICLPM models.
 
 
-Note the wfRICLPM function has been written on insights from the [riclpmr](http://johnflournoy.science/riclpmr/) package.
+PLease note that the wfRICLPM function has been written on insights from the [riclpmr](http://johnflournoy.science/riclpmr/) package.
 
 Please check this [link](https://github.com/jflournoy/riclpmr) for generating syntax for the RI-CLPM, and this [blog](https://jflournoy.github.io/2017/10/20/riclpm-lavaan-demo/) for an explainer on the RICLPM. 
 

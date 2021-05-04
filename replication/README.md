@@ -49,11 +49,13 @@ dev.off()
 
 library(lavaan)
 
-source_url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/R/RICLPM_TEDS_NTR.R") #source lavaan model called: RICLPM
+source_url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/R/RICLPM_TEDS_NTR.R") #source RICLPM unconstrained lavaan model called: RICLPM_unconst
+
+source('R/RICLPM_TEDS_NTR.R')
 
 sample.n <- 8549 # specify TEDS sample size 
 
-RICLPM_fit <- lavaan(RICLPM, 
+RICLPM_fit <- lavaan(RICLPM_unconst, 
                sample.cov = CorMatTEDS, 
                sample.nobs = sample.n,
                int.ov.free = F,
@@ -153,8 +155,6 @@ groups.n <- list(MZ=5900, DZ=10791) #NTR sample size by zigosity
 wfRICLPM_test <- lavaan(obj$model, 
                sample.cov = CorMatNTR, 
                sample.nobs = groups.n,
-               missing = 'ML',
-               estimator = 'MLR',
                int.ov.free = F,
                int.lv.free = F,
                auto.fix.first = F,
