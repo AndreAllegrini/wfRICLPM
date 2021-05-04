@@ -6,7 +6,7 @@ Models (both RICLPM and wfRICLPM) were based on four traits and three measuremen
 
 You can test the manuscript models using the code below.
 
-### RICLPM
+## RICLPM
 
 Source the RICLPM model and summary data for TEDS: 
 
@@ -17,9 +17,9 @@ load(url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/data/CovMat_TED
 
 ```
 
-This is a correlation matrix of TEDS variables called CovMatTEDS
+This is a variance/covariance matrix of TEDS variables called CorMatTEDS.
 
-#### Visualize the data
+### Plot the data
 
 Correlation plot of the data used in the RICLPM, including four traits (externalizing, attention, internalizing, and social problems) measured at three time points (t1, t2 and t3). A general pattern of positive correlations can be observed, with expected stronger correlations for repeated measurements of the same trait. 
 
@@ -33,7 +33,7 @@ load('../data/CovMat_TEDS.Rdata')
 
 png('../plots/corMat_TEDS.png', res=350, height = 800, width = 800)
 
-corrplot(cov2cor(CorMatTEDS) ,method = "square", type = 'upper', outline = "black", 
+corrplot(cov2cor(CorMatTEDS), method = "square", type = 'upper', outline = "black", 
          diag = FALSE, addCoef.col = "black", number.cex = .2, tl.cex = .4, cl.cex = .4,
          tl.col = "black",cl.lim = c(0,1))
 
@@ -43,7 +43,7 @@ dev.off()
 
 ![](../plots/corMat_TEDS.png?raw=true)
 
-Fit the RICLPM model:
+### Fit the RICLPM model:
 
 ```{r}
 
@@ -51,11 +51,11 @@ library(lavaan)
 
 source_url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/R/RICLPM_TEDS_NTR.R") #source lavaan model called: RICLPM
 
-riclpm.n <- 8549 # specify TEDS sample size 
+sample.n <- 8549 # specify TEDS sample size 
 
 RICLPM_fit <- lavaan(RICLPM, 
                sample.cov = CorMatTEDS, 
-               sample.nobs = riclpm.n,
+               sample.nobs = sample.n,
                int.ov.free = F,
                int.lv.free = F,
                auto.fix.first = F,
@@ -69,7 +69,7 @@ summary(RICLPM_fit, standardized = TRUE)
 ```
 
 
-### wfRICLPM
+## wfRICLPM
 
 You can test the wfRICLPM function using the following code:
 
@@ -84,7 +84,7 @@ load(url("https://github.com/AndreAllegrini/wfRICLPM/tree/master/data/CorMat_zyg
 
 This is a list object containing covariance matrices of variables employed for MZ and DZ twins. 
 
-#### Visualize the data
+### Plot the data
 
 Plot of correlations by zigosity (MZ vs DZ twins), for four traits (EXT, ATT, INT, SOC) measured at three time points (t1, t2 and t3), for both siblings (sibling "a" and "b"), as for the RICLPM model in singletons.
 
@@ -93,8 +93,6 @@ Upper triangle shows correlations for MZ twins, lower triangle shows correlation
 Top left and bottom right squares are phenotypic correlations for twin 'a' and twin 'b' respectively, and are approximate symmetic matrices. While top right and bottom left squares are cross twin correlations, with expected stronger correlations (darker squares) for MZs. 
 
 ```{r eval=F echo = F, fig.height=12, fig.width=12}
-
-library(RColorBrewer)
 
 load('../data/CovMat_zyg_NTR.RData')
       
@@ -119,6 +117,8 @@ dev.off()
 ```
 
 ![](../plots/TwinCorMat_NTR.png?raw=true)
+
+### Run as: 
 
 The following code can be used to generate the wfRICLPM model based on these data
 
@@ -145,15 +145,15 @@ cat(obj$model)
 
 See [wfRICLPM_TEDS.R](../R/wfRICLPM_TEDS.R) and [wfRICLPM_NTR.R](../R/wfRICLPM_NTR.R) for the model specification.
 
-Run as: 
+### Fit the wfRICLPM model:
 
 ```{r}
 
-wf_clpm.n <- list(MZ=5900, DZ=10791) #NTR sample size by zigosity
+groups.n <- list(MZ=5900, DZ=10791) #NTR sample size by zigosity
 
 wfRICLPM_test <- lavaan(obj$model, 
-               sample.cov = wf_clpm.cov, 
-               sample.nobs = wf_clpm.n,
+               sample.cov = CorMatNTR, 
+               sample.nobs = groups.n,
                missing = 'ML',
                estimator = 'MLR',
                int.ov.free = F,
