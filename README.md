@@ -61,7 +61,6 @@ Note that the wfRICLPM function has been written on insights from the [riclpmr](
 
 Please do check this [link](https://github.com/jflournoy/riclpmr) for generating syntax for the RI-CLPM, and this [blog](https://jflournoy.github.io/2017/10/20/riclpm-lavaan-demo/) for an explainer on the RICLPM. 
 
-
 ### References 
 
 **Hamaker, E. L., Kuiper, R. M., & Grasman, R. P. (2015).** A critique of the cross-lagged panel model. Psychological methods, 20(1), 102.
