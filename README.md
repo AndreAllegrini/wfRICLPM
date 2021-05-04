@@ -63,5 +63,5 @@ Please do check this [link](https://github.com/jflournoy/riclpmr) for generating
 
 ### References 
 
-**Hamaker, E. L., Kuiper, R. M., & Grasman, R. P. (2015).** A critique of the cross-lagged panel model. Psychological methods, 20(1), 102.
+**Hamaker, E. L., Kuiper, R. M., & Grasman, R. P. (2015).** A critique of the cross-lagged panel model. Psychological methods, 20(1), 102. 
 
