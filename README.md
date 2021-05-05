@@ -6,7 +6,7 @@ wfRICLPM is a function to create a RI-CLPM (**Hamaker et al., 2015**) lavaan mod
 Source as: 
 
 ```{r}
-source('https://github.com/AndreAllegrini/wfRICLPM/tree/master/R/wfRICLPM.func.R')
+source('https://github.com/AndreAllegrini/wfRICLPM/tree/master/R/wfRICLPM.R')
 ```
 
 wfRICLPM takes in a list of traits and measurement occasions, and a vector of siblings subscripts (currently limited to 2, e.g. sibSub = c("i", "j")) 
@@ -57,7 +57,7 @@ We provide a [tutorial](replication/README.md) to replicate results from our [ma
 
 ### Acknowledgments
 
-Note that the wfRICLPM function has been written on insights from the [riclpmr](http://johnflournoy.science/riclpmr/) package.
+The wfRICLPM function has been written on insights from the [riclpmr](http://johnflournoy.science/riclpmr/) package.
 
 Please do check this [link](https://github.com/jflournoy/riclpmr) for generating syntax for the RI-CLPM, and this [blog](https://jflournoy.github.io/2017/10/20/riclpm-lavaan-demo/) for an explainer on the RICLPM. 
 
