@@ -1,7 +1,9 @@
+
 # Replication of analyses
 
-[RICLPM](#RICLPM).
-[wfRICLPM](#wfRICLPM).
+[RICLPM](#RICLPM)
+
+[wfRICLPM](#wfRICLPM)
 
 We provide models and summary level data (variance/covariance matrices) to replicate RICLPM and wfRICLPM results from our [manuscript]().
 
@@ -45,6 +47,8 @@ dev.off()
 ![](../plots/corMat_TEDS.png?raw=true)
 
 ### Fit the model:
+
+We now source the RICLPM model and feed it to lavaan after specifying the sample size used in analyses.  
 
 We now source the RICLPM model and feed it to lavaan after specifying the sample size used in analyses.  
 
