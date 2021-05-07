@@ -65,7 +65,7 @@ fit <- lavaan(obj$model, #wfRICLPM model
 
 ## Tutorial on manuscript models: 
 
-We provide a [tutorial](replication/README.md) to replicate results from our [manuscript]() including both RICLPM and wfRICLPM models.
+We provide a [tutorial](replication/README.md) to replicate results from our [manuscript](https://psyarxiv.com/t486z/) including both RICLPM and wfRICLPM models.
 
 ### Acknowledgments
 

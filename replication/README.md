@@ -7,7 +7,7 @@
 
 ***
 
-We provide models and summary level data (variance/covariance matrices) to replicate RICLPM and wfRICLPM results from our [manuscript]().
+We provide models and summary level data (variance/covariance matrices) to replicate RICLPM and wfRICLPM results from our [manuscript](https://psyarxiv.com/t486z/).
 
 Models (both RICLPM and wfRICLPM) were based on four traits and three measurement occasions.
 
