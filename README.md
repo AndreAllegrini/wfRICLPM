@@ -1,7 +1,7 @@
 
 # wfRICLPM
 
-wfRICLPM is a function to create a RI-CLPM (**Hamaker et al., 2015**) lavaan model including sibling regressions overtime, while taking into account the fact that family members resemble eachother.  
+wfRICLPM is a function to create a RI-CLPM (**Hamaker et al., 2015**) `lavaan` model including sibling regressions overtime, while taking into account the fact that family members resemble eachother.  
 
 Source as: 
 
