@@ -1,3 +1,4 @@
+
 # Replication of analyses
 
 [RICLPM](#RICLPM).
@@ -45,6 +46,8 @@ dev.off()
 ![](../plots/corMat_TEDS.png?raw=true)
 
 ### Fit the model:
+
+We now source the RICLPM model and feed it to lavaan after specifying the sample size used in analyses.  
 
 We now source the RICLPM model and feed it to lavaan after specifying the sample size used in analyses.  
 
