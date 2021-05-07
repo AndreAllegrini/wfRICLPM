@@ -5,6 +5,8 @@
 
 [wfRICLPM](#wfRICLPM)
 
+***
+
 We provide models and summary level data (variance/covariance matrices) to replicate RICLPM and wfRICLPM results from our [manuscript]().
 
 Models (both RICLPM and wfRICLPM) were based on four traits and three measurement occasions.
