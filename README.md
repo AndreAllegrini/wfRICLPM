@@ -8,9 +8,7 @@ Source as:
 
 ```{r}
 
-library(devtools)
-
-source_url('https://github.com/AndreAllegrini/wfRICLPM/tree/master/R/wfRICLPM.R') 
+source('https://raw.githubusercontent.com/AndreAllegrini/wfRICLPM/master/R/wfRICLPM.R')
 
 ```
 
