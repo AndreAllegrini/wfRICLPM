@@ -15,7 +15,7 @@ You can test the manuscript models using the code below.
 
 ## RICLPM
 
-After downloading the repository, load the summary level data for TEDS: 
+After downloading the repository, load the summary level data for TEDS (or NTR): 
 
 ```{r}
 
@@ -79,11 +79,11 @@ summary(RICLPM_fit, standardized = TRUE)
 
 You can test the wfRICLPM function using the following code.
 
-Load the NTR summary level data:
+Load the NTR (or TEDS) summary level data:
 
 ```{r}
 
-load("../data/CovMat_zyg_NTR.RData")
+load("../data/CovMatZyg_NTR.RData")
 
 ```
 
@@ -154,9 +154,10 @@ cat(obj$model)
 Fit the unconstrained model after specifying the sample size by zigosity. 
 
 ```{r}
+
 groups.n <- list(DZ=10791,MZ=5900) #NTR sample size by zigosity
 
-wfRICLPM_test <- lavaan(obj$model, 
+wfRICLPM_fit <- lavaan(obj$model, 
                sample.cov = covMat, 
                sample.nobs = groups.n,
                int.ov.free = F,
@@ -167,7 +168,7 @@ wfRICLPM_test <- lavaan(obj$model,
                auto.cov.y = F,
                auto.var = F)
 
-summary(wfRICLPM_test, standardized = TRUE)
+summary(wfRICLPM_fit, standardized = TRUE)
 
 ```
 
