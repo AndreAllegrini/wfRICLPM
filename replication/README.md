@@ -33,9 +33,9 @@ Correlation plot of the data used in the RICLPM, including four traits (external
 
 library(corrplot)
 
-load('../data/CovMat_TEDS.Rdata')
+load("../data/CovMat_TEDS.Rdata")
 
-png('../plots/corMat_TEDS.png', res=350, height = 800, width = 800)
+png("../plots/corMat_TEDS.png", res=350, height = 800, width = 800)
 
 corrplot(cov2cor(covTEDS), #convert covariance matrix to correlation matrix
          method = "square", type = 'upper', outline = "black", 
@@ -87,7 +87,7 @@ load("../data/CovMatZyg_NTR.RData")
 
 ```
 
-This is a list containing variance/covariance matrices for monozygotic and dizygotic twins. 
+This is a list, called `covMat`, containing variance/covariance matrices for monozygotic and dizygotic twins. 
 
 ### Plot the data:
 
@@ -108,7 +108,7 @@ covMat$MZ[lower.tri(covMat$MZ)] <- covMat$DZ[lower.tri(covMat$DZ)]
 
 par(mar = c(5,1,4,2) + 0.1) 
 
-png('../plots/TwinCorMat_NTR.png', res=400, height = 8000, width = 8000)
+png("../plots/TwinCorMat_NTR.png", res=400, height = 8000, width = 8000)
 
 corrplot(covMat$MZ, method="square", outline = "black", order = "original",
          tl.col = "black", tl.cex = 2, cl.lim = c(0,1), cl.cex = 2,
@@ -125,12 +125,12 @@ dev.off()
 
 ### Run as: 
 
-Generate the wfRICLPM model based on these data.
+Generate the wfRICLPM model based on these data:
 
 ```{r eval=F}
 
 #source the wfRICLPM function
-source('../R/wfRICLPM.R')
+source("../R/wfRICLPM.R")
 
 #define variables to be fed to function
 varNames <- list(
@@ -151,7 +151,7 @@ cat(obj$model)
 
 ```
 
-Fit the unconstrained model after specifying the sample size by zigosity. 
+Fit the unconstrained model after specifying the sample size by zigosity: 
 
 ```{r}
 
