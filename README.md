@@ -8,7 +8,7 @@ Source as:
 
 ```{r}
 
-source('https://raw.githubusercontent.com/AndreAllegrini/wfRICLPM/master/R/wfRICLPM.R')
+source("https://raw.githubusercontent.com/AndreAllegrini/wfRICLPM/master/R/wfRICLPM.R")
 
 ```
 
